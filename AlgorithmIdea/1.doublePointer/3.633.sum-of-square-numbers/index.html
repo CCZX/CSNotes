@@ -14,4 +14,18 @@
 输入: 3
 输出: False
 */
+
+/**
+ * @param {number} c
+ * @return {boolean}
+ */
+var judgeSquareSum = function(c) {
+  for (let i = 0; i ** 2 < c; i++) {
+    const sqrt = Math.sqrt(c - i ** 2)
+    if (sqrt % 1 === 0) {
+      return true
+    }
+  }
+  return false
+}
 </script>
