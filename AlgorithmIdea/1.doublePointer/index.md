@@ -7,3 +7,8 @@
 
 - [leetcode](https://leetcode-cn.com/problems/container-with-most-water/)
 - [题解](./2.11.container-with-most-water/index.html)
+
+### 3、平方数之和
+
+- [leetcode](https://leetcode-cn.com/problems/sum-of-square-numbers/)
+- [题解](./3.633.sum-of-square-numbers/index.html)
