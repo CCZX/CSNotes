@@ -1,4 +1,4 @@
-# Data structure and algorithms
+# Computer science and technology notes
 
 ## algorithms
 
