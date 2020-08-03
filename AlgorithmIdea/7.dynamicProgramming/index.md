@@ -4,6 +4,10 @@
 - [leetcode](https://leetcode-cn.com/problems/climbing-stairs/)
 - [code](./5.70.climbing-stairs/index.html)
 
+### 2、打家劫舍
+- [leetcode](https://leetcode-cn.com/problems/house-robber/)
+- [code](./7.198.house-robber/index.js)
+
 ## list
 
 ### 1、最大子序和
@@ -25,3 +29,16 @@
 
 - [leetcode](https://leetcode-cn.com/problems/unique-paths-ii/)
 - [题解](./4.63.unique-paths-ii/index.html)
+
+### 5、爬楼梯
+- [leetcode](https://leetcode-cn.com/problems/climbing-stairs/)
+- [code](./5.70.climbing-stairs/index.html)
+
+### 6、最小路劲和
+
+- [leetcode](https://leetcode-cn.com/problems/minimum-path-sum/)
+- [code](./6.64.minimum-path-sum/index.js)
+
+### 7、打家劫舍
+- [leetcode](https://leetcode-cn.com/problems/house-robber/)
+- [code](./7.198.house-robber/index.js)
