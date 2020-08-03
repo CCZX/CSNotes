@@ -1,4 +1,4 @@
-# Data structure and algorithms
+# Computer science and technology notes
 
 ## algorithms
 
@@ -10,3 +10,7 @@
 - [search（搜索）](./AlgorithmIdea/6.search)
 - [dynamicProgramming（动态规划）](./AlgorithmIdea/7.dynamicProgramming)
 - [mathematics（数学）](./AlgorithmIdea/8.mathematics)
+
+## Frontend Blog
+
+- [在TypeScript中写isParentNode引发的Node和Element思考](./FrontendBlog/1.在TypeScript中写isParentNode引发的Node和Element思考.md)
