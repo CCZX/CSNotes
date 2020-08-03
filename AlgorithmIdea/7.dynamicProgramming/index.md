@@ -8,6 +8,10 @@
 - [leetcode](https://leetcode-cn.com/problems/house-robber/)
 - [code](./7.198.house-robber/index.js)
 
+### 3、打家劫舍 II
+- [leetcode](https://leetcode-cn.com/problems/house-robber-ii/)
+- [code](./8.213.house-robber-ii)
+
 ## list
 
 ### 1、最大子序和
@@ -42,3 +46,7 @@
 ### 7、打家劫舍
 - [leetcode](https://leetcode-cn.com/problems/house-robber/)
 - [code](./7.198.house-robber/index.js)
+
+### 8、打家劫舍 II
+- [leetcode](https://leetcode-cn.com/problems/house-robber-ii/)
+- [code](./8.213.house-robber-ii)
