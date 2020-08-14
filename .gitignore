@@ -1,1 +1,37 @@
-# index.html
+npm-debug.log
+node_modules/
+.idea/
+package-lock.json
+
+# some local files
+*/.settings/
+*/.DS_Store
+.DS_Store
+*/.idea/
+.idea/
+gradlew
+gradlew.bat
+unused.txt
+
+.vscode
+
+# Log Files
+*.log
+
+# Lines that start with '#' are comments.
+# IntelliJ IDEA Project files
+.idea
+*.iml
+*.ipr
+*.iws
+
+*.bak
+*.tem
+*.temp
+#.swp
+*.*~
+~*.*
+
+/dist
+
+lib/
