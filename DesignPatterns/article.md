@@ -1,0 +1,1 @@
+- [JavaScript的5种设计模式](https://juejin.im/post/6859506910652006414)
