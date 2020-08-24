@@ -6,3 +6,5 @@
 6. [search（搜索）](./6.search/index.md)
 7. [dynamicProgramming（动态规划）](./7.dynamicProgramming/index.md)
 8. [mathematics（数学）](./8.mathematics/index.md)
+
+> 如果题目中涉及到可以使用暴力破解的方式，可能不会写。
