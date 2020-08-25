@@ -1,6 +1,6 @@
 ### 题目
 
-[LeetCode](https://leetcode-cn.com/problems/reorganize-string/) <span style="color: #FFB73F">中等</span>
+[重构字符串](https://leetcode-cn.com/problems/reorganize-string/) <span style="color: #FFB73F">中等</span>
 
 ### 题目描述：
 给定一个字符串`S`，检查是否能重新排布其中的字母，使得两相邻的字符不同。
@@ -95,5 +95,5 @@ var reorganizeString = function(S) {
 
 > 执行结果：
 
-- 执行用时：` ms`，在所有`JavaScript`提交中击败了`%`的用户
-- 内存消耗：` MB`，在所有`JavaScript`提交中击败了`%`的用户
+- 执行用时：`72 ms`，在所有`JavaScript`提交中击败了`90.84 %`的用户
+- 内存消耗：`38.9 MB`，在所有`JavaScript`提交中击败了`79.26 %`的用户
