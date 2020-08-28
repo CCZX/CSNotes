@@ -40,6 +40,11 @@
 - [LeetCode](https://leetcode-cn.com/problems/arithmetic-slices/)
 - [code](./10.413.arithmetic-slices/index.md)
 
+### 四、分隔整数
+
+#### 1、整数拆分
+- [Integer-break](https://leetcode-cn.com/problems/integer-break/description/)
+- [code](./11.343.integer-break/index.md)
 
 
 ## 题目列表
@@ -88,3 +93,7 @@
 ### 10、等差数列划分
 - [LeetCode](https://leetcode-cn.com/problems/arithmetic-slices/)
 - [code](./10.413.arithmetic-slices/index.md)
+
+### 11、整数拆分
+- [Integer-break](https://leetcode-cn.com/problems/integer-break/description/)
+- [code](./11.343.integer-break/index.md)
