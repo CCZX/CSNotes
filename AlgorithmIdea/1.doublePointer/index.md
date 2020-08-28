@@ -11,4 +11,4 @@
 ### 3、平方数之和
 
 - [leetcode](https://leetcode-cn.com/problems/sum-of-square-numbers/)
-- [题解](./3.633.sum-of-square-numbers/index.html)
+- [题解](./3.633.sum-of-square-numbers/index.md)
