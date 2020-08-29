@@ -1,3 +1,5 @@
+将常见的算法思想分为如下几类，然后在`LeetCode`上找有代表性的题目的来解决。
+
 1. [doublePointer（双指针）](./1.doublePointer/index.md)
 2. [sort（排序）](./2.sort/index.md)
 3. [greedy（贪心）](./3.greedy/index.md)
