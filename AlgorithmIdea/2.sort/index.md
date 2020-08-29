@@ -4,9 +4,9 @@
 
 
 ### 1、数组中的第K个最大元素
-- [LeetCode](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)
+- [数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)
 - [code](./1.215.kth-largest-element-in-an-array/index.html)
 
 ### 2、重构字符串
-- [LeetCode](https://leetcode-cn.com/problems/reorganize-string/)
+- [重构字符串](https://leetcode-cn.com/problems/reorganize-string/)
 - [code](./2.767.reorganize-string/index.md)
