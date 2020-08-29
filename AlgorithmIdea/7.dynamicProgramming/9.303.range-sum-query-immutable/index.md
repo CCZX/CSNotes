@@ -1,6 +1,6 @@
 ### 题目描述：
 
-[leetcode](https://leetcode-cn.com/problems/range-sum-query-immutable/description/) <span style="color: #5AB726">简单</span>
+[区域和检索-力扣](https://leetcode-cn.com/problems/range-sum-query-immutable/description/) <span style="color: #5AB726">简单</span>
 
 > 给定一个整数数组  nums，求出数组从索引 i 到 j  (i ≤ j) 范围内元素的总和，包含 i,  j 两点。
 

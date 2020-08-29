@@ -8,11 +8,11 @@
 
 #### 1、爬楼梯
 - [爬楼梯-力扣](https://leetcode-cn.com/problems/climbing-stairs/)
-- [解题思路](./5.70.climbing-stairs/index.html)
+- [解题思路](./5.70.climbing-stairs/index.md)
 
 #### 2、打家劫舍
 - [打家劫舍-力扣](https://leetcode-cn.com/problems/house-robber/)
-- [解题思路](./7.198.house-robber/index.js)
+- [解题思路](./7.198.house-robber/index.md)
 
 #### 3、打家劫舍 II（环形）
 - [打家劫舍 II-力扣](https://leetcode-cn.com/problems/house-robber-ii/)
@@ -23,12 +23,12 @@
 #### 1、最小路径和
 
 - [最小路径和-力扣](https://leetcode-cn.com/problems/minimum-path-sum/)
-- [解题思路](./6.64.minimum-path-sum/index.js)
+- [解题思路](./6.64.minimum-path-sum/index.md)
 
 #### 2、不同路径
 
 - [不同路径-力扣](https://leetcode-cn.com/problems/unique-paths/)
-- [解题思路](./3.62.unique-paths/index.html)
+- [解题思路](./3.62.unique-paths/index.md)
 
 ### 三、数组区间
 
@@ -52,34 +52,34 @@
 ### 1、最大子序和
 
 - [最大子序和-力扣](https://leetcode-cn.com/problems/maximum-subarray/)
-- [解题思路](./1.53.maximum-subarray/index.html)
+- [解题思路](./1.53.maximum-subarray/index.md)
 
 ### 2、最长有效括号
 
 - [最长有效括号-力扣](https://leetcode-cn.com/problems/longest-valid-parentheses/)
-- [解题思路](./2.32.longest-valid-parentheses/index.html)
+- [解题思路](./2.32.longest-valid-parentheses/index.md)
 
 ### 3、不同路径
 
 - [不同路径-力扣](https://leetcode-cn.com/problems/unique-paths/)
-- [解题思路](./3.62.unique-paths/index.html)
+- [解题思路](./3.62.unique-paths/index.md)
 
 ### 4、不同路径 II
 
 - [不同路径 II-力扣](https://leetcode-cn.com/problems/unique-paths-ii/)
-- [解题思路](./4.63.unique-paths-ii/index.html)
+- [解题思路](./4.63.unique-paths-ii/index.md)
 
 ### 5、爬楼梯
 - [爬楼梯-力扣](https://leetcode-cn.com/problems/climbing-stairs/)
-- [解题思路](./5.70.climbing-stairs/index.html)
+- [解题思路](./5.70.climbing-stairs/index.md)
 
 ### 6、最小路径和
 - [最小路径和-力扣](https://leetcode-cn.com/problems/minimum-path-sum/)
-- [解题思路](./6.64.minimum-path-sum/index.js)
+- [解题思路](./6.64.minimum-path-sum/index.md)
 
 ### 7、打家劫舍
 - [打家劫舍-力扣](https://leetcode-cn.com/problems/house-robber/)
-- [解题思路](./7.198.house-robber/index.js)
+- [解题思路](./7.198.house-robber/index.md)
 
 ### 8、打家劫舍 II
 - [打家劫舍 II-力扣](https://leetcode-cn.com/problems/house-robber-ii/)

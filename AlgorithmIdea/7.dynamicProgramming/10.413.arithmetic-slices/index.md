@@ -1,6 +1,6 @@
 ### 题目
 
-[LeetCode](https://leetcode-cn.com/problems/arithmetic-slices) <span style="color: #FFB73F">中等</span>
+[等差数列划分-力扣](https://leetcode-cn.com/problems/arithmetic-slices) <span style="color: #FFB73F">中等</span>
 
 ### 题目描述
 

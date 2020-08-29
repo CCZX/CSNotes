@@ -1,5 +1,5 @@
 
-[整数拆分](https://leetcode-cn.com/problems/integer-break/)
+[整数拆分-力扣](https://leetcode-cn.com/problems/integer-break/)
 <span style="color: #FFB73F">中等</span>
 
 ### 题目描述
