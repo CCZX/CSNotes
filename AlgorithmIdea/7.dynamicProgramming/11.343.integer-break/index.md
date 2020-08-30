@@ -66,3 +66,27 @@ const integerBreak = function(n) {
 
 - 执行用时：`80 ms`，在所有`JavaScript`提交中击败了`78.98 %`的用户
 - 内存消耗：`37.3 MB`，在所有`JavaScript`提交中击败了`95.1 %`的用户
+
+#### 2、递归
+
+对于数字`n`我们可以将其拆分为`n - 1`和`1`，然后可以将`n - 1`拆分为`n - 2`和`1`，以此类推。。。
+
+> 代码
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+const integerBreak = function(n) {
+  let res = 0
+  for(let i = 1; i < n; i++) {
+    res = Math.max(res, (n - i) * i, integerBreak(n - i) * i)
+  }
+  return res
+};
+```
+
+> 执行结果
+
+递归超时
