@@ -49,6 +49,10 @@
 - [整数拆分-力扣](https://leetcode-cn.com/problems/integer-break/description/)
 - [解题思路](./11.343.integer-break/index.md)
 
+### 2、完全平方数
+- [完全平方数-力扣](https://leetcode-cn.com/problems/perfect-squares/description/)
+- [解题思路](./12.279.perfect-squares/index.md)
+
 
 ## 题目列表
 
@@ -99,3 +103,7 @@
 ### 11、整数拆分
 - [整数拆分-力扣](https://leetcode-cn.com/problems/integer-break/description/)
 - [解题思路](./11.343.integer-break/index.md)
+
+### 12、完全平方数
+- [完全平方数-力扣](https://leetcode-cn.com/problems/perfect-squares/description/)
+- [解题思路](./12.279.perfect-squares/index.md)
