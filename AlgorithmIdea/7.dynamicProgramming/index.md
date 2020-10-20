@@ -45,13 +45,17 @@
 
 ### 四、分隔整数
 
-#### 1、整数拆分
+#### 1、整数拆分 - 分隔整数使其乘积最大
 - [整数拆分-力扣](https://leetcode-cn.com/problems/integer-break/description/)
 - [解题思路](./11.343.integer-break/index.md)
 
-### 2、完全平方数
+#### 2、完全平方数 - 和等于某个正整数的多个完全平方数最小数量
 - [完全平方数-力扣](https://leetcode-cn.com/problems/perfect-squares/description/)
 - [解题思路](./12.279.perfect-squares/index.md)
+
+#### 3、解码方法 - 
+- [解码方法-力扣](https://leetcode-cn.com/problems/decode-ways/description/)
+- [解题思路](./13.91.decode-ways/index.md)
 
 
 ## 题目列表
