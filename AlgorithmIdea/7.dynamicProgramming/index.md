@@ -53,7 +53,7 @@
 - [完全平方数-力扣](https://leetcode-cn.com/problems/perfect-squares/description/)
 - [解题思路](./12.279.perfect-squares/index.md)
 
-#### 3、解码方法 - 
+#### 3、解码方法 - 字符串分解的方法种数
 - [解码方法-力扣](https://leetcode-cn.com/problems/decode-ways/description/)
 - [解题思路](./13.91.decode-ways/index.md)
 
