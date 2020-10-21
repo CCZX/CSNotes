@@ -111,3 +111,7 @@
 ### 12、完全平方数
 - [完全平方数-力扣](https://leetcode-cn.com/problems/perfect-squares/description/)
 - [解题思路](./12.279.perfect-squares/index.md)
+
+### 13、整数拆分 - 分隔整数使其乘积最大
+- [整数拆分-力扣](https://leetcode-cn.com/problems/integer-break/description/)
+- [解题思路](./11.343.integer-break/index.md)
