@@ -57,6 +57,12 @@
 - [解码方法-力扣](https://leetcode-cn.com/problems/decode-ways/description/)
 - [解题思路](./13.91.decode-ways/index.md)
 
+### 五、最长递增子序列
+
+#### 1、最长上升子序列
+
+- [最长上升子序列-力扣](https://leetcode-cn.com/problems/longest-increasing-subsequence/description/)
+- [解题方法](./14.300.longest-increasing-subsequence/index.md)
 
 ## 题目列表
 
@@ -115,3 +121,8 @@
 ### 13、整数拆分 - 分隔整数使其乘积最大
 - [整数拆分-力扣](https://leetcode-cn.com/problems/integer-break/description/)
 - [解题思路](./11.343.integer-break/index.md)
+
+### 14、最长上升子序列
+
+- [最长上升子序列-力扣](https://leetcode-cn.com/problems/longest-increasing-subsequence/description/)
+- [解题方法](./14.300.longest-increasing-subsequence/index.md)
