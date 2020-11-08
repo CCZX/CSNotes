@@ -6,7 +6,7 @@ class Publisher {
     this.observerList.push(fn)
   }
 
-  trigger(...args) {
+  emit(...args) {
     for (let i = 0; i < this.observerList.length; i++) {
       const fn = this.observerList[i]
       fn.apply(this, args)
@@ -23,7 +23,7 @@ publister.on(function (...data) {
   console.log('oberver---2', data)
 })
 
-publister.trigger(1, 2)
+publister.emit(1, 2)
 
 // 实现可以监听特定主题的
 class PublisherAndSubject {
@@ -35,8 +35,8 @@ class PublisherAndSubject {
     }
     this.observerList[subject].push(fn)
   }
-
-  trigger(subject, ...args) {
+  
+  emit(subject, ...args) {
     const fns = this.observerList[subject] || []
     for (let i = 0; i < fns.length; i++) {
       fns[i].apply(this, args)
@@ -54,5 +54,38 @@ p2.on('up', function (...args) {
 p2.on('down', function (...args) {
   console.log('down', args)
 })
-p2.trigger('up', 1, 2)
-p2.trigger('down', 3, 4)
+p2.emit('up', 1, 2)
+p2.emit('down', 3, 4)
+
+class PublisherCanOff {
+  observerList = {}
+
+  on(name, subject, fn) {
+    if (!this.observerList[subject]) {
+      this.observerList[subject] = {}
+    }
+    this.observerList[subject][name] = fn
+  }
+
+  off(name, subject) {
+    const observers = this.observerList[subject]
+    delete observers[name]
+  }
+
+  emit(subject, ...args) {
+    const fns = this.observerList[subject] || {}
+    const keys = Object.keys(fns)
+    for (let i = 0; i < keys.length; i++) {
+      typeof fns[keys[i]] === 'function' && fns[keys[i]].apply(this, args)
+    }
+  }
+}
+
+const p3 = new PublisherCanOff()
+p3.on('name1', 'up', function (...args) {
+  console.log(args)
+})
+p3.emit('up', 1, 2)
+p3.off('name1', 'up')
+p3.emit('up', 1, 2)
+

@@ -39,14 +39,77 @@ pub.on(function(...data) {
 pub.emit(1, 2)
 ```
 
+上面的代码中实现的观察者模式，当发布者发布消息时，所有订阅者都会接收到消息，即使订阅者对这个消息不感兴趣；我们新增一个功能：订阅者在订阅消息时只订阅自己感兴趣的消息，这样只有发布者在发布自己感性的消息的时候订阅者才会收到通知。
+```js
+class Publisher {
+  observerList = {}
+
+  on(subject, fn) {
+    if (!this.observerList[subject]) {
+      this.observerList[subject] = []
+    }
+    this.observerList[subject].push(fn)
+  }
+
+  emit(subject, ...args) {
+    const fns = this.observerList[subject] || []
+    for (let i = 0; i < fns.length; i++) {
+      fns[i].apply(this, args)
+    }
+  }
+}
+```
+实现可以卸载掉某个观察者的模式：
+```js
+class PublisherCanOff {
+  observerList = {}
+
+  on(name, subject, fn) {
+    if (!this.observerList[subject]) {
+      this.observerList[subject] = {}
+    }
+    this.observerList[subject][name] = fn
+  }
+
+  off(name, subject) {
+    const observers = this.observerList[subject]
+    delete observers[name]
+  }
+
+  emit(subject, ...args) {
+    const fns = this.observerList[subject] || {}
+    const keys = Object.keys(fns)
+    for (let i = 0; i < keys.length; i++) {
+      typeof fns[keys[i]] === 'function' && fns[keys[i]].apply(this, args)
+    }
+  }
+}
+```
+
 ## 3、常见应用场景
 
 使用观察者模式时需要事先将所有观察者绑定到发布者身上，如果不同观察者之间存在引用关系的话在发布消息时可能存在问题。
+
+### 1、事件监听
+
+观察者模式在`JavaScript`中的应用十分广泛，比如我们常见的事件监听就是观察者模式，订阅事件`dom.addEventlistener('click', () => {})`，当我们点击`dom`节点的时候节点就会收到消息从而执行响应的回调函数。
+
+### 2、NodeJS的EventEmitter
+
+`EventEmitter`的核心功能就是事件的触发和事件的监听功能，所有的消息传递都可以由`EventEmitter`调度中心来完成，实现代码的解耦。
+
+### 3、Vue的响应式原理
 
 ## 4、常见问题
 
 ### 1、观察者模式和发布订阅模式区别
 - 观察者模式：只有两个角色 —— 观察者 + 被观察者；是松耦合的关系；多用于单个应用内部。
-- 发布订阅模式：不仅仅只有发布者和订阅者两个角色，还存在一个中间者；完全不存在耦合；更多用于跨应用的模式(cross-application pattern)，比如我们常用的消息中间件。
+- 发布订阅模式：不仅仅只有发布者和订阅者两个角色，还存在一个中间者；完全不存在耦合；更多用于跨应用的模式，比如我们常用的消息中间件。
+
+### 2、优缺点
+- 优点：实现了代码之间的解耦弱化了对象之间的联系，观察者不必知道发布者的具体过程，只需要符合发布者的抽象接口就能实现订阅消息。
+- 缺点：过度使用观察者模式会导致对象与对象之间的联系也会被隐藏的很深，使得项目的难以跟踪维护和理解。
 
 ## 5、总结
+
+在实际过程中如果遇到当某个状态发生变化时需要通知多个对象时就非常适合使用观察者模式，能够大大降低代码之间的耦合性；但在使用过程中往往也会带来新的问题，所以要逻辑严密避免问题的出现，以及避免不合理的过分的使用观察者模式。
