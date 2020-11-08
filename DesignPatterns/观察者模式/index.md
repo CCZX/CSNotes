@@ -100,6 +100,10 @@ class PublisherCanOff {
 
 ### 3、Vue的响应式原理
 
+`Vue`的响应式不仅依赖于`Object.defineProperty`还依赖于观察者模式，Vue在初始化的时候劫持`setter`给观察者`Dep`添加订阅者，`Vue`组件在`mount`阶段会创建一个`Watcher`对象，`Watcher`对应着一个`Vue`组件，`Watcher`就对应着`Dep`的订阅者，当数据发生变化时就会通知所有的观察者更新。
+
+参考：https://zhuanlan.zhihu.com/p/88648401
+
 ## 4、常见问题
 
 ### 1、观察者模式和发布订阅模式区别
