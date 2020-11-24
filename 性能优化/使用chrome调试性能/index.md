@@ -105,7 +105,7 @@
 - 用户可操作时间节点：`domready`触发节点。
 - 总下载时间：`window.onload`的触发节点。
 
-`performance API`主要包含以下三个对象：
+`performance API`主要包含以下几个属性：
 
 **1、memory，内存情况**
 
