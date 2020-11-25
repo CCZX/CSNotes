@@ -12,3 +12,8 @@
 
 - [平方数之和-力扣](https://leetcode-cn.com/problems/sum-of-square-numbers/)
 - [解题思路](./3.633.sum-of-square-numbers/index.md)
+
+### 反转字符串中的元音字母
+
+- [反转字符串中的元音字母-力扣](https://leetcode-cn.com/problems/reverse-vowels-of-a-string/description/)
+- [解题思路](./4.345.reverse-vowels-of-a-string/index.md)
