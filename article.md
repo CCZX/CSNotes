@@ -3,3 +3,11 @@
 - [手写CommonJS](https://juejin.im/post/6844903998600773646)
 
 - [CommonJS讲解](https://juejin.im/post/6844903685466619911)
+
+- [前端路由](https://mp.weixin.qq.com/s/3_S3853OYBdWS4sSX_IcPA)
+
+- [ESM](https://mp.weixin.qq.com/s/DkOHjCAdTk3uy4lBnrUESQ)
+
+- [React原理](https://mp.weixin.qq.com/s/ifLP36rFhYJsU2RCAi7OZQ)
+
+- [Chrome调试技巧](https://mp.weixin.qq.com/s/8FkVlSP8-8M-kGMnORB-FA)
