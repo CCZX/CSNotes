@@ -12,6 +12,7 @@ package-lock.json
 gradlew
 gradlew.bat
 unused.txt
+draft/
 
 .vscode
 
