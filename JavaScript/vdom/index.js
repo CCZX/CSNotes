@@ -10,7 +10,26 @@ var element = {
   ]
 }
 
-function render(element, container) {
-  const dom = document.createElement(element.type)
-
+function isStatic(element) {
+  return typeof element === 'number' || typeof element === 'string'
 }
+
+/**
+ * 
+ * @param {object} element 
+ * @param {Element} container 
+ */
+function render(element, container) {
+  const { type, props = {}, children = [] } = element
+  const dom = isStatic(element) ? document.createTextNode(element) : document.createElement(type)
+  Object.keys(props).forEach(p => {
+    dom[p] = props[p]
+  })
+  children.forEach(c => {
+    render(c, dom)
+  })
+
+  container.appendChild(dom)
+}
+
+render(element, document.getElementById('app'))
