@@ -4,7 +4,9 @@ var element = {
     id: 'list'
   },
   children: [
-    {type: 'li', children: ["Item 1"]},
+    {type: 'li', props: {
+      style: "color: red"
+    }, children: ["Item 1"]},
     {type: 'li', children: ["Item 2"]},
     {type: 'li', children: ["Item 3"]},
   ]
