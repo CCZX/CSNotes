@@ -87,3 +87,42 @@ var hasCycle = (head) => {
 
 - 执行用时：`96 ms`，在所有`JavaScript`提交中击败了`54.28 %`的用户
 - 内存消耗：`40.2 MB`，在所有`JavaScript`提交中击败了`37.14 %`的用户
+
+#### 2、哈希表
+
+我们可以将已经访问过的数据存在哈希表中，后续每次访问都判断哈希表是否有该数据，如果有那么就代表有环。
+
+> 代码实现：
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+var hasCycle = (head) => {
+  let map = new Map();
+  while (head) {
+    if (map.has(head)) return true;
+    map.set(head, true);
+    head = head.next;
+  }
+  return false;
+}
+```
+
+> 时间复杂度&空间复杂度：
+- 时间复杂度：`O(n)`
+- 空间复杂度：`O(n)`
+
+> 执行结果：
+
+- 执行用时：`88 ms`，在所有`JavaScript`提交中击败了`85.84 %`的用户
+- 内存消耗：`40.8 MB`，在所有`JavaScript`提交中击败了`5.73 %`的用户
