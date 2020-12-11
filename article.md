@@ -11,3 +11,5 @@
 - [React原理](https://mp.weixin.qq.com/s/ifLP36rFhYJsU2RCAi7OZQ)
 
 - [Chrome调试技巧](https://mp.weixin.qq.com/s/8FkVlSP8-8M-kGMnORB-FA)
+
+- [VDOM](https://mp.weixin.qq.com/s/Jr0-2kRSgfHfRZugtRMDBg)
