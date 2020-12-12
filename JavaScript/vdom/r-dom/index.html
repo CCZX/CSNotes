@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    const container = document.getElementById('app')
+    const data = new Array(100000).fill(0).map((i, index) => `第${index}个数据`)
+
+    // console.time('createDOM')
+    // data.forEach((item, index) => {
+    //   const p = document.createElement('p')
+    //   p.innerText = item
+    //   p.className = `text-${index}`
+    //   container.appendChild(p)
+    // })
+    // console.timeEnd('createDOM') // 244.572021484375 ms
+
+    console.time('createDOM')
+    const fragment = document.createDocumentFragment();
+    data.forEach((item, index) => {
+      const p = document.createElement('p')
+      p.innerText = item
+      p.className = `text-${index}`
+      fragment.appendChild(p)
+    })
+    container.appendChild(fragment)
+    console.timeEnd('createDOM')
+  </script>
+</body>
+</html>
