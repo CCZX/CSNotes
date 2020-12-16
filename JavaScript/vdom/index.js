@@ -12,6 +12,20 @@ var element = {
   ]
 }
 
+var newElement = {
+  type: 'ul',
+  props: { 
+    id: 'list'
+  },
+  children: [
+    {type: 'li', props: {
+      style: "color: red"
+    }, children: ["Item 1"]},
+    {type: 'li', children: ["Item 2"]},
+    {type: 'li', children: ["Item 3"]},
+  ]
+}
+
 function isStatic(element) {
   return typeof element === 'number' || typeof element === 'string'
 }
@@ -22,11 +36,18 @@ function isStatic(element) {
  * @param {Element} container 
  */
 function render(element, container) {
+
   const { type, props = {}, children = [] } = element
+
+  // 判断节点类型
   const dom = isStatic(element) ? document.createTextNode(element) : document.createElement(type)
+
+  // 设置属性
   Object.keys(props).forEach(p => {
     dom[p] = props[p]
   })
+
+  // 子节点渲染
   children.forEach(c => {
     render(c, dom)
   })
@@ -34,4 +55,46 @@ function render(element, container) {
   container.appendChild(dom)
 }
 
-render(element, document.getElementById('app'))
+// render(element, document.getElementById('app'))
+
+const nodePatchTypes = {
+  CREATE: 'CREATE',
+  REMOVE: 'REMOVE',
+  REPLACE: 'REPLACE',
+  UPDATE: 'UPDATE'
+}
+const propPatchTypes = {
+  REMOVE: 'REMOVE',
+  UPDATE: 'UPDATE'
+}
+function diff(oldVDOM, newVDOM) {
+  if (!oldVDOM) {
+    return {
+      type: nodePatchTypes.CREATE,
+      vdom: newVDOM
+    }
+  }
+  if (!newVDOM) {
+    return {
+      type: nodePatchTypes.REMOVE
+    }
+  }
+  if (
+    typeof oldVDOM !== typeof newVDOM ||
+    (isStatic(oldVDOM) && oldVDOM !== newVDOM) ||
+    oldVDOM.type !== newVDOM.type
+  ) {
+    return {
+      type: nodePatchTypes.REPLACE,
+      vdom: newVDOM
+    }
+  }
+
+  if (newVDOM.type) {
+    const patchProps = 1
+  }
+}
+
+function diffProps(oldVDOM, newVDOM) {
+  
+}
