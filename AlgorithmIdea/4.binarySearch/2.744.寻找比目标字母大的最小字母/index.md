@@ -83,14 +83,39 @@ var nextGreatestLetter = function(letters, target) {
 ```
 
 > 时间复杂度&空间复杂度：
-- 时间复杂度：`O()`
-- 空间复杂度：`O()`
+- 时间复杂度：`O(lgn)`
+- 空间复杂度：`O(1)`
 
 > 执行结果：
 
-- 执行用时：` ms`，在所有`JavaScript`提交中击败了` %`的用户
-- 内存消耗：` MB`，在所有`JavaScript`提交中击败了` %`的用户
+- 执行用时：`84 ms`，在所有`JavaScript`提交中击败了`82.05 %`的用户
+- 内存消耗：`39.2 MB`，在所有`JavaScript`提交中击败了`81.2 %`的用户
+
+#### 2、利用JavaScript数组的find方法
+
+一行代码即可搞定！
+
+```js
+/**
+ * @param {character[]} letters
+ * @param {character} target
+ * @return {character}
+ */
+var nextGreatestLetter = function(letters, target) {
+  return letters.find(i => i > target) || letters[0]
+};
+
+```
+
+> 时间复杂度&空间复杂度：
+- 时间复杂度：`O(n)`
+- 空间复杂度：`O(1)`
+
+> 执行结果：
+
+- 执行用时：`80 ms`，在所有`JavaScript`提交中击败了`93.59 %`的用户
+- 内存消耗：`39.1 MB`，在所有`JavaScript`提交中击败了`82.48 %`的用户
 
 ### 总结
 
-对于排序好的数列，需要从中找一个特定的项，都可以使用二分法来实现。
+对于排序好的数列，需要从中找一个特定的项，都可以使用二分法来实现；也可以多使用JavaScript的方法效率更高，写法也更简单。
