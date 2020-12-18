@@ -67,6 +67,7 @@ const propPatchTypes = {
   REMOVE: 'REMOVE',
   UPDATE: 'UPDATE'
 }
+// 更新DOM
 function diff(oldVDOM, newVDOM) {
   if (!oldVDOM) {
     return {
@@ -95,6 +96,7 @@ function diff(oldVDOM, newVDOM) {
   }
 }
 
+// 更新props
 function diffProps(oldVDOM, newVDOM) {
   
 }
