@@ -57,6 +57,28 @@ target = "k"
 > 代码实现：
 
 ```js
+/**
+ * @param {character[]} letters
+ * @param {character} target
+ * @return {character}
+ */
+var nextGreatestLetter = function(letters, target) {
+  if(letters.length == 0){return ''}
+  if(target < letters[0] || target >= letters[letters.length -1]) return letters[0]
+  let l = 0, r = letters.length -1
+  while(l <= r ){
+    let mid = Math.floor(l + (r - l)/2)
+    if(letters[mid] > target){ 
+      r = mid - 1
+    }else if(letters[mid] < target){
+      l = mid + 1
+    }else if(letters[mid] == target){
+      l = mid + 1
+    }
+  }
+  if(r < 0 ) return -1
+  return letters[r + 1]
+};
 
 ```
 
