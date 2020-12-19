@@ -14,4 +14,6 @@
 
 - [VDOM](https://mp.weixin.qq.com/s/Jr0-2kRSgfHfRZugtRMDBg)
 
-- [ ESLint 、Prettier、EditorConfig](https://mp.weixin.qq.com/s/SW8YH3-z8MSD-RmeGEuPEA)
+- [ESLint 、Prettier、EditorConfig](https://mp.weixin.qq.com/s/SW8YH3-z8MSD-RmeGEuPEA)
+
+- [CSS变量对JS开发带来的变革](https://mp.weixin.qq.com/s/sFrrYHZL6B5NucTQmevfTg)
