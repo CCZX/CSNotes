@@ -1,1 +1,5 @@
-- [函数柯里化](./1.柯里化/index.js)
+1. [函数柯里化](./1.柯里化/index.js)
+2. [new](./2.new/index.js)
+3. [数组方法](./3.数组方法/index.js)
+4. [防抖节流](./4.防抖节流/index.js)
+5. [bind-call-apply](./5.bind-call-apply/index.js)
