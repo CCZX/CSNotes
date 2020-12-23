@@ -1,33 +1,52 @@
 var element = {
   type: 'ul',
-  props: { 
+  props: {
     id: 'list'
   },
   children: [
-    {type: 'li', props: {
-      style: "color: red"
-    }, children: ["Item 1"]},
-    {type: 'li', children: ["Item 2"]},
-    {type: 'li', children: ["Item 3"]},
+    {
+      type: 'li', props: {
+        style: "color: red"
+      }, children: ["Item 1"]
+    },
+    { type: 'li', children: ["Item 2"] },
+    { type: 'li', children: ["Item 3"] },
   ]
 }
 
 var newElement = {
   type: 'ul',
-  props: { 
-    id: 'list'
+  props: {
+    id: 'list-1'
   },
   children: [
-    {type: 'li', props: {
-      style: "color: red"
-    }, children: ["Item 1"]},
-    {type: 'li', children: ["Item 2"]},
-    {type: 'li', children: ["Item 3"]},
+    {
+      type: 'li', props: {
+        style: "color: red"
+      }, children: ["Item update"]
+    },
+    { type: 'li', children: ["Item 2"] },
+    { type: 'li', children: ["Item 3"] },
   ]
 }
 
 function isStatic(element) {
   return typeof element === 'number' || typeof element === 'string'
+}
+
+// 将虚拟DOM转化为真实的DOM
+function createElement(vdom) {
+  if (isStatic(vdom)) {
+    return document.createTextNode(vdom)
+  }
+  const {type, props = {}, children = []} = vdom
+  const element = document.createElement(type)
+  Object.keys(props).forEach(p => {
+    element[p] = props[p]
+  })
+  // 遍历子节点并插入到父节点
+  children.map(createElement).forEach(element.appendChild.bind(element))
+  return element
 }
 
 /**
@@ -36,26 +55,10 @@ function isStatic(element) {
  * @param {Element} container 
  */
 function render(element, container) {
-
-  const { type, props = {}, children = [] } = element
-
-  // 判断节点类型
-  const dom = isStatic(element) ? document.createTextNode(element) : document.createElement(type)
-
-  // 设置属性
-  Object.keys(props).forEach(p => {
-    dom[p] = props[p]
-  })
-
-  // 子节点渲染
-  children.forEach(c => {
-    render(c, dom)
-  })
-
-  container.appendChild(dom)
+  container.appendChild(element)
 }
 
-// render(element, document.getElementById('app'))
+render(createElement(element), document.getElementById('app'))
 
 const nodePatchTypes = {
   CREATE: 'CREATE',
@@ -91,12 +94,116 @@ function diff(oldVDOM, newVDOM) {
     }
   }
 
-  if (newVDOM.type) {
-    const patchProps = 1
+  if (oldVDOM.type && newVDOM.type) {
+    const propsDiff = diffProps(oldVDOM, newVDOM)
+
+    const childrenDiff = diffChildren(oldVDOM, newVDOM)
+    console.log(propsDiff)
+    if (propsDiff.length || childrenDiff.some(i => i)) {
+      return {
+        type: nodePatchTypes.UPDATE,
+        props: propsDiff,
+        children: childrenDiff
+      }
+    }
   }
 }
 
 // 更新props
 function diffProps(oldVDOM, newVDOM) {
-  
+  const patches = []
+  const allProps = { ...oldVDOM.props, ...newVDOM.props }
+
+  Object.keys(allProps).forEach(key => {
+    const oldValue = oldVDOM.props[key]
+    const newValue = newVDOM.props[key]
+
+    if (newValue === undefined) {
+      patches.push({
+        type: propPatchTypes.REMOVE,
+        key
+      })
+    } else if (oldValue === undefined || oldValue !== newValue) {
+      patches.push({
+        type: propPatchTypes.UPDATE,
+        key,
+        value: newValue
+      })
+    }
+  })
+
+  return patches
+}
+
+// 更新子节点
+function diffChildren(oldVDOM, newVDOM) {
+  const patches = []
+
+  const childrenLen = Math.max(oldVDOM.children.length, newVDOM.children.length)
+
+  for (let i = 0; i < childrenLen; i++) {
+    patches.push(diff(oldVDOM.children[i], newVDOM.children[i]))
+  }
+
+  return patches
+}
+
+// 得到差异对象
+const patches = diff(element, newElement)
+
+const app = document.getElementById('app')
+
+patch(app, patches)
+
+function patch(parent, patches, index = 0) {
+  if (!patches) {
+    return
+  }
+
+  // 新建元素
+  if (patches.type === nodePatchTypes.CREATE) {
+    return parent.appendChild(createElement(patches.vdom))
+  }
+
+  // 获取对应的子节点
+  const element = parent.childNodes[index]
+
+  // 删除元素
+  if (patches.type === nodePatchTypes.REMOVE) {
+    return parent.removeChild(element)
+  }
+
+  // 替换元素
+  if (patches.type === nodePatchTypes.REPLACE) {
+    return parent.replaceChild(createElement(patches.vdom), element)
+  }
+
+  // 更新元素
+  if (patches.type === nodePatchTypes.UPDATE) {
+    const { props, children } = patches
+
+    // 更新属性
+    patchProps(element, props)
+
+    // 更新子元素
+    children.forEach((patches, i) => {
+      // 更新子元素时，需要将子元素的序号传入以便获取对应的节点
+      patch(element, patches, i)
+    })
+  }
+}
+
+// 更新属性
+function patchProps(element, props) {
+  if (!props) {
+    return
+  }
+
+  props.forEach(patches => {
+    if (patches.type === propPatchTypes.REMOVE) {
+      element.removeAttribute(patches.key)
+    } else if (patches.type === propPatchTypes.UPDATE) {
+      element.setAttribute(patches.key, patches.value)
+    }
+  })
 }

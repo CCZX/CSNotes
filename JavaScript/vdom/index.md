@@ -33,6 +33,6 @@
 
 VDOM的更新涉及到diff算法。diff的比较分为三个部分：
 
-- tree diff：之比较同层节点
+- tree diff：之比较同层节点，如果同层节点不同则直接重新创建不用比较后面的子节点
 - comment diff：如果是同类组件则按照tree diff比较，如果不是则直接删除重新创建
 - element diff：使用key对同层节点进行比较
