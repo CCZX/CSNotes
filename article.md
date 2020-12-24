@@ -19,3 +19,11 @@
 8. [CSS变量对JS开发带来的变革](https://mp.weixin.qq.com/s/sFrrYHZL6B5NucTQmevfTg)
 
 9. [axios封装](https://mp.weixin.qq.com/s/fPuBTZGYQISwVtGxPZYYrQ)
+
+10. [bolb讲解](https://mp.weixin.qq.com/s/lQKTCS_QB0E62SK9oXD4LA)
+
+11. [剪切板](https://mp.weixin.qq.com/s/YglpNY640Pusw4GjVVM7Cg)
+
+12. [实现简易的模块打包器](https://mp.weixin.qq.com/s/fkz-aFSKkR_O9hC47eic1g)
+
+13. [常见的手写代码pollyfill](https://mp.weixin.qq.com/s/xxsJ3xduNscWSvMkZIi-iw)
