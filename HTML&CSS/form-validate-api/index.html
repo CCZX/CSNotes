@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form class="form" id="form" method="get" action="/api/form">
+  	账号：
+    <input id="account" data-title="账号" placeholder="请输入正确的账号" pattern="\w{6,10}" name="account" type="text" required />
+    <input id="submit" name="button" type="submit" value="提交" />
+  </form>
+<!-- https://juejin.cn/post/6909133332064239623 -->
+  <script>
+      'use strict';
+      account.setCustomValidity('自定义错误！');
+      form.addEventListener('submit', event => {
+      console.log('13')
+        
+        event.preventDefault();
+      });
+  </script>
+
+</body>
+</html>
