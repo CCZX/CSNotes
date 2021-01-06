@@ -13,3 +13,25 @@
 ### 3、有序数组中的单一项
 - [有序数组中的单一元素](https://leetcode-cn.com/problems/single-element-in-a-sorted-array/)
 - [解题思路](./3.540.有序数组中的但一项/index.md)
+
+### 4、第一个错误的版本
+- [第一个错误的版本](https://leetcode-cn.com/problems/first-bad-version/)
+- [解题思路](./4.278.第一个错误的版本./index.md)
+
+const solution = (isBadVersion) => {
+  // n是版本总数 函数返回第一个错误的版本号
+  return (n) => {
+    let low = 0, high = n;
+    let firstBadVer = n;
+    while (low <= high) {
+      const mid = (low + high) >>> 1;
+      if (isBadVersion(mid)) {
+        firstBadVer = mid; // mid是坏版本，
+        high = mid - 1; // 将右指针考察mid-1
+      } else {
+        low = mid + 1; // mid还不是坏版本，将左指针考察到mid+1
+      }
+    }
+    return firstBadVer;
+  };
+};
