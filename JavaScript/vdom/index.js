@@ -1,4 +1,4 @@
-var element = {
+var oldElement = {
   type: 'ul',
   props: {
     id: 'list'
@@ -14,21 +14,25 @@ var element = {
   ]
 }
 
-var newElement = {
-  type: 'ul',
-  props: {
-    id: 'list-1'
-  },
-  children: [
-    {
-      type: 'li', props: {
-        style: "color: red"
-      }, children: ["Item update"]
-    },
-    { type: 'li', children: ["Item 2"] },
-    { type: 'li', children: ["Item 3"] },
-  ]
-}
+// var newElement = {
+//   type: 'ul',
+//   props: {
+//     id: 'list-1'
+//   },
+//   children: [
+//     {
+//       type: 'li', props: {
+//       }, children: ["Item"]
+//     },
+//     { type: 'li', children: ["Item 2"] },
+//     { type: 'li', children: ["Item 3"] },
+//     { type: 'li', children: ["Item 4"] },
+//   ]
+// }
+
+const root = document.getElementById('app')
+const createBtn = document.querySelector('.create-btn')
+const removeBtn = document.querySelector('.remove-btn')
 
 function isStatic(element) {
   return typeof element === 'number' || typeof element === 'string'
@@ -58,7 +62,7 @@ function render(element, container) {
   container.appendChild(element)
 }
 
-render(createElement(element), document.getElementById('app'))
+render(createElement(oldElement), root)
 
 const nodePatchTypes = {
   CREATE: 'CREATE',
@@ -70,7 +74,12 @@ const propPatchTypes = {
   REMOVE: 'REMOVE',
   UPDATE: 'UPDATE'
 }
-// 更新DOM
+
+/**
+ * 生成新旧两颗DOM tree的差异对象
+ * @param {*} oldVDOM 
+ * @param {*} newVDOM 
+ */
 function diff(oldVDOM, newVDOM) {
   if (!oldVDOM) {
     return {
@@ -78,11 +87,13 @@ function diff(oldVDOM, newVDOM) {
       vdom: newVDOM
     }
   }
+
   if (!newVDOM) {
     return {
       type: nodePatchTypes.REMOVE
     }
   }
+
   if (
     typeof oldVDOM !== typeof newVDOM ||
     (isStatic(oldVDOM) && oldVDOM !== newVDOM) ||
@@ -96,7 +107,6 @@ function diff(oldVDOM, newVDOM) {
 
   if (oldVDOM.type && newVDOM.type) {
     const propsDiff = diffProps(oldVDOM, newVDOM)
-
     const childrenDiff = diffChildren(oldVDOM, newVDOM)
     console.log(propsDiff)
     if (propsDiff.length || childrenDiff.some(i => i)) {
@@ -109,7 +119,11 @@ function diff(oldVDOM, newVDOM) {
   }
 }
 
-// 更新props
+/**
+ * 比较props
+ * @param {*} oldVDOM 
+ * @param {*} newVDOM 
+ */
 function diffProps(oldVDOM, newVDOM) {
   const patches = []
   const allProps = { ...oldVDOM.props, ...newVDOM.props }
@@ -135,7 +149,11 @@ function diffProps(oldVDOM, newVDOM) {
   return patches
 }
 
-// 更新子节点
+/**
+ * 比较子节点
+ * @param {*} oldVDOM 
+ * @param {*} newVDOM 
+ */
 function diffChildren(oldVDOM, newVDOM) {
   const patches = []
 
@@ -148,24 +166,21 @@ function diffChildren(oldVDOM, newVDOM) {
   return patches
 }
 
-// 得到差异对象
-const patches = diff(element, newElement)
-
-const app = document.getElementById('app')
-
-patch(app, patches)
-
+/**
+ * 根据生成的差异对象更新DOM tree
+ * @param {*} parent 
+ * @param {*} patches 
+ * @param {*} index 
+ */
 function patch(parent, patches, index = 0) {
-  if (!patches) {
-    return
-  }
+  if (!patches || !parent) return
 
   // 新建元素
   if (patches.type === nodePatchTypes.CREATE) {
     return parent.appendChild(createElement(patches.vdom))
   }
 
-  // 获取对应的子节点
+  // 获取对应的子节点，在更新子节点时根据子节点的索引获取子节点
   const element = parent.childNodes[index]
 
   // 删除元素
@@ -193,11 +208,8 @@ function patch(parent, patches, index = 0) {
   }
 }
 
-// 更新属性
 function patchProps(element, props) {
-  if (!props) {
-    return
-  }
+  if (!props) return
 
   props.forEach(patches => {
     if (patches.type === propPatchTypes.REMOVE) {
@@ -207,3 +219,30 @@ function patchProps(element, props) {
     }
   })
 }
+
+// 得到差异对象
+// const patches = diff(oldElement, newElement)
+
+// patch(root, patches)
+
+createBtn.addEventListener('click', () => {
+  var newElement = {
+    ...oldElement,
+    children: [...oldElement.children, { type: 'li', children: [`${new Date()}`] }]
+  }
+  const patches = diff(oldElement, newElement)
+  patch(root, patches)
+  oldElement = newElement
+})
+
+removeBtn.addEventListener('click', () => {
+  const cloneOldElement = JSON.parse(JSON.stringify(oldElement))
+  cloneOldElement.children.pop()
+  var newElement = {
+    ...oldElement,
+    children: cloneOldElement.children
+  }
+  const patches = diff(oldElement, newElement)
+  patch(root, patches)
+  oldElement = newElement
+})
