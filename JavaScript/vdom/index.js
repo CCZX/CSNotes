@@ -1,12 +1,21 @@
 var oldElement = {
   type: 'ul',
   props: {
-    id: 'list'
+    id: 'list',
+    onClick: (e) => {
+      console.log('list click', e)
+    }
   },
   children: [
     {
       type: 'li', props: {
-        style: "color: red"
+        style: "color: red",
+        onClick: (e) => {
+          console.log('li click', e)
+        },
+        onMousemove: () => {
+          console.log('onmousemove')
+        }
       }, children: ["Item 1"]
     },
     { type: 'li', children: ["Item 2"] },
@@ -38,6 +47,9 @@ function isStatic(element) {
   return typeof element === 'number' || typeof element === 'string'
 }
 
+const isEvent = (prop) => prop.startsWith('on')
+const isAttribute = (prop) => !isEvent(prop)
+
 // 将虚拟DOM转化为真实的DOM
 function createElement(vdom) {
   if (isStatic(vdom)) {
@@ -45,12 +57,29 @@ function createElement(vdom) {
   }
   const {type, props = {}, children = []} = vdom
   const element = document.createElement(type)
-  Object.keys(props).forEach(p => {
-    element[p] = props[p]
-  })
+  
+  setProps(props, element)
+  setEvent(props, element)
   // 遍历子节点并插入到父节点
   children.map(createElement).forEach(element.appendChild.bind(element))
   return element
+}
+
+function setProps(props, element) {
+  Object.keys(props).filter(isAttribute).forEach(p => {
+    element[p] = props[p]
+  })
+}
+
+// 绑定事件
+function setEvent(props, element) {
+  const events = Object.keys(props).filter(isEvent)
+  events.forEach(item => {
+    const event = item.substring(2).toLowerCase()
+    element.addEventListener(event, (e) => {
+      typeof props[item] === 'function' && props[item](e)
+    })
+  })
 }
 
 /**
