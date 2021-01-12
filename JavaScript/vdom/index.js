@@ -43,16 +43,13 @@ const root = document.getElementById('app')
 const createBtn = document.querySelector('.create-btn')
 const removeBtn = document.querySelector('.remove-btn')
 
-function isStatic(element) {
-  return typeof element === 'number' || typeof element === 'string'
-}
-
-const isEvent = (prop) => prop.startsWith('on')
+const isStaticType = (type) => typeof type === 'number' || typeof type === 'string'
+const isEvent = (prop) => prop.toLowerCase().startsWith('on')
 const isAttribute = (prop) => !isEvent(prop)
 
 // 将虚拟DOM转化为真实的DOM
 function createElement(vdom) {
-  if (isStatic(vdom)) {
+  if (isStaticType(vdom)) {
     return document.createTextNode(vdom)
   }
   const {type, props = {}, children = []} = vdom
@@ -60,6 +57,7 @@ function createElement(vdom) {
   
   setProps(props, element)
   setEvent(props, element)
+
   // 遍历子节点并插入到父节点
   children.map(createElement).forEach(element.appendChild.bind(element))
   return element
@@ -125,7 +123,7 @@ function diff(oldVDOM, newVDOM) {
 
   if (
     typeof oldVDOM !== typeof newVDOM ||
-    (isStatic(oldVDOM) && oldVDOM !== newVDOM) ||
+    (isStaticType(oldVDOM) && oldVDOM !== newVDOM) ||
     oldVDOM.type !== newVDOM.type
   ) {
     return {
@@ -137,7 +135,7 @@ function diff(oldVDOM, newVDOM) {
   if (oldVDOM.type && newVDOM.type) {
     const propsDiff = diffProps(oldVDOM, newVDOM)
     const childrenDiff = diffChildren(oldVDOM, newVDOM)
-    console.log(propsDiff)
+
     if (propsDiff.length || childrenDiff.some(i => i)) {
       return {
         type: nodePatchTypes.UPDATE,
@@ -161,12 +159,12 @@ function diffProps(oldVDOM, newVDOM) {
     const oldValue = oldVDOM.props[key]
     const newValue = newVDOM.props[key]
 
-    if (newValue === undefined) {
+    if (!newValue) {
       patches.push({
         type: propPatchTypes.REMOVE,
         key
       })
-    } else if (oldValue === undefined || oldValue !== newValue) {
+    } else if (!oldValue || oldValue !== newValue) {
       patches.push({
         type: propPatchTypes.UPDATE,
         key,
@@ -248,11 +246,6 @@ function patchProps(element, props) {
     }
   })
 }
-
-// 得到差异对象
-// const patches = diff(oldElement, newElement)
-
-// patch(root, patches)
 
 createBtn.addEventListener('click', () => {
   var newElement = {
