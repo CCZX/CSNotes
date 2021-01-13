@@ -42,6 +42,7 @@ var oldElement = {
 const root = document.getElementById('app')
 const createBtn = document.querySelector('.create-btn')
 const removeBtn = document.querySelector('.remove-btn')
+const updateBtn = document.querySelector('.update-btn')
 
 const isStaticType = (type) => typeof type === 'number' || typeof type === 'string'
 const isEvent = (prop) => prop.toLowerCase().startsWith('on')
@@ -253,6 +254,7 @@ createBtn.addEventListener('click', () => {
     children: [...oldElement.children, { type: 'li', children: [`${new Date()}`] }]
   }
   const patches = diff(oldElement, newElement)
+  console.log(patches)
   patch(root, patches)
   oldElement = newElement
 })
@@ -265,6 +267,17 @@ removeBtn.addEventListener('click', () => {
     children: cloneOldElement.children
   }
   const patches = diff(oldElement, newElement)
+  patch(root, patches)
+  oldElement = newElement
+})
+
+updateBtn.addEventListener('click', () => {
+  const newElement = JSON.parse(JSON.stringify(oldElement))
+  if (!newElement?.children?.length) return
+  if (!newElement?.children[0]?.props?.style) return
+  newElement.children[0].props.style = "color: blue"
+  const patches = diff(oldElement, newElement)
+  console.log(patches)
   patch(root, patches)
   oldElement = newElement
 })
