@@ -27,3 +27,5 @@
 12. [实现简易的模块打包器](https://mp.weixin.qq.com/s/fkz-aFSKkR_O9hC47eic1g)
 
 13. [常见的手写代码pollyfill](https://mp.weixin.qq.com/s/xxsJ3xduNscWSvMkZIi-iw)
+
+14. [从0实现一个mini redux](https://mp.weixin.qq.com/s/6GekCrSSr4Wfsk9VPJ659g)
