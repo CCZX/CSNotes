@@ -1,0 +1,21 @@
+<script>
+  /**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMin = function(nums) {
+  var l = 0, r = nums.length - 1
+  var m = Math.floor((r + l) / 2)
+  while(l < r) {
+    m = Math.floor((r + l) / 2)
+    if(nums[m] <= nums[r]) {
+      r = m
+    } else {
+      l = m + 1
+    }
+  }
+  console.log(l, m, r)
+  return nums[l]
+};
+findMin([4,5,6,7,0,1,2])
+</script>

@@ -16,4 +16,8 @@
 
 ### 4、第一个错误的版本
 - [第一个错误的版本](https://leetcode-cn.com/problems/first-bad-version/)
-- [解题思路](./4.278.第一个错误的版本./index.md)
+- [解题思路](./4.278.第一个错误的版本/index.md)
+
+### 4、寻找旋转排序数组中的最小值
+- [寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array)
+- [解题思路](./5.153.旋转数组中的最小值/index.md)
