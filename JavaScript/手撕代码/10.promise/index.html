@@ -1,0 +1,24 @@
+<script>
+  // const p1 = Promise.resolve(() => {
+  //   console.log(1)
+  // })
+  // p1.then(val => {
+  //   console.log(val)
+  // })
+  // console.log(p1)
+
+  const p1 = Promise.resolve(1)
+  console.log(p1, 'p1')
+
+  const p2 = new Promise((resolve) => {
+    resolve(1)
+  })
+  p2.then(v => {
+    console.log('v1', v)
+    return new Promise((resolve) => {
+      resolve(2)
+    })
+  }).then(v => {
+    console.log('v2', v)
+  })
+</script>
