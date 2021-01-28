@@ -47,10 +47,10 @@ A = [1, 2, 3, 4]
 var numberOfArithmeticSlices = function(A) {
   const dp = [0, 0]
   let res = 0
-  for(let i = 2; i < A.length; i++>) {
+  for(let i = 2; i < A.length; i++) {
     if(A[i] - A[i-1] === A[i-1] - A[i-2]) {
       // 这表示如果i-2,i-1,i是等差数列并且i-1,1,i+1是等差数列，那么i-2,i-1,i,i+1也是等差数列所以+1
-      dp[i] = dp[i-1] !== 0 ? dp[i-1] + 1 : dp[i-1]
+      dp[i] = dp[i-1] !== 0 ? dp[i-1] + 1 : 1
     } else {
       dp[i] = 0
     }
