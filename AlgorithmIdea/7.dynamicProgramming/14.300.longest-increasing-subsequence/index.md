@@ -29,7 +29,11 @@
 
 状态转移方程：
 ```js
-dp[i] = dp[i - 1] + 1
+if (nums[i] > nums[i - 1]) {
+  dp[i] = dp[i - 1] + 1
+} else {
+  dp[i] = dp[i - 1]
+}
 ```
 
 > 代码实现：
