@@ -19,5 +19,5 @@ B(k, c) = B(k - 1, c)
 
 取最大值：
 ```js
-B(k, c) = max(B(k, c - W[k]) + V[k], B(k - 1, c))
+B(k, c) = max(B(k - 1, c - W[k]) + V[k], B(k - 1, c))
 ```
