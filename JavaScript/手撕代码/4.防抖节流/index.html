@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" name="" id="inp">
+  <script>
+
+  function debounce(fn, wait) {
+    let timer = null
+    return function (...args) {
+      clearTimeout(timer)
+      timer = setTimeout(() => {
+        fn.call(this, ...args)
+      }, wait)
+    }
+  }
+
+    function throttle1(fn, interval) {
+      let prevTime = 0
+      return function (...args) {
+        let currTime = Date.now()
+        if (currTime - prevTime > interval) {
+          fn.call(this, ...args)
+          prevTime = currTime
+        }
+      }
+    }
+
+    function throttle(fun, delay) {
+      let last, deferTimer
+      return function (args) {
+        let that = this
+        let _args = arguments
+        let now = +new Date()
+        if (last && now < last + delay) {
+          clearTimeout(deferTimer)
+          deferTimer = setTimeout(function () {
+            last = now
+            fun.apply(that, _args)
+          }, delay)
+        } else {
+          last = now
+          fun.apply(that, _args)
+        }
+      }
+    }
+
+    let throttleAjax = debounce((e) => {
+      console.log(e)
+    }, 1000)
+
+    let inputc = document.getElementById('inp')
+    inputc.addEventListener('keyup', function (e) {
+      throttleAjax(e.target.value)
+    })
+
+    // const inp = document.querySelector('#inp')
+    // inp.addEventListener('input', )
+  </script>
+</body>
+
+</html>

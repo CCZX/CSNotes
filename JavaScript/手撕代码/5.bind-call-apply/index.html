@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    Function.prototype.myBind = function (ctx, ...initArgs) {
+      const fn = this
+
+      function resFn(...args) {
+        fn.apply(ctx, [...initArgs, ...args])
+        // 用于判断是否为 new 调用
+        // if (this instanceof resFn) {
+        //   fn.apply(this, [...initArgs, ...args])
+        // } else {
+        //   fn.apply(ctx, [...initArgs, ...args])
+        // }
+      }
+
+      // resFn.prototype = Object.create(this.prototype)
+
+      return resFn
+    }
+    const obj = {
+      a: 1
+    }
+    function foo() {
+      console.log(this.a)
+    }
+    const bfoo = foo.myBind(obj)
+    bfoo()
+    const nfoo = new bfoo()
+  </script>
+</body>
+</html>
