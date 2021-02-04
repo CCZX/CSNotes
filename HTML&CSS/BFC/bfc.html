@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      overflow: hidden;
+      /* border: 1px solid; */
+      /* outline: 1px solid; */
+    }
+    p {
+      width: 100px;
+      height: 100px;
+      background: lightblue;
+      margin: 100px;
+    }
+    .rect {
+      width: 0;
+height: 0;
+border-top: 40px solid transparent;
+border-left: 40px solid transparent;
+border-right: 40px solid transparent;
+border-bottom: 40px solid #ff0000;
+
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    具有BFC特性的元素可以看做是隔离独立的容器，容器里面的元素布局不会影响到外面的元素
+   -->
+  <!-- <div class="container">
+    <p></p>
+  </div>
+  <div class="container">
+    <p></p>
+  </div> -->
+  <div style="height: 100px;width: 100px;float: left;background: lightblue">我是一个左浮动的元素</div>
+<div style="width: 200px; height: 200px;background: #eee; overflow: hidden;">我是一个没有设置浮动, 
+也没有触发 BFC 元素, width: 200px; height:200px; background: #eee;</div>
+<div class="rect"></div>
+</body>
+</html>

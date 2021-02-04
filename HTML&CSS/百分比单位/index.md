@@ -1,0 +1,4 @@
+- width、padding、margin：相对直接父元素的宽度
+- height：直接父元素的高度
+- border-radius：水平相对于自身width、垂直相对于自身height
+- border、box-shadow：不支持百分比
