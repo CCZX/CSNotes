@@ -1,0 +1,35 @@
+<script>
+  const mergeSort = (arr) => {
+    const list = [...arr]
+    if (list.length === 1) return list
+    const mid = Math.floor(list.length / 2)
+    const leftArr = list.slice(0, mid)
+    const rightArr = list.slice(mid)
+    return merge(mergeSort(leftArr), mergeSort(rightArr))
+  }
+
+  const merge = (leftArr, rightArr) => {
+    const result = []
+    let left = 0
+    let right = 0
+    while (left < leftArr.length && right < rightArr.length) {
+      if (leftArr[left] < rightArr[right]) {
+        result.push(leftArr[left])
+        left++
+      } else {
+        result.push(rightArr[right])
+        right++
+      }
+    }
+    while (left < leftArr.length) {
+      result.push(leftArr[left])
+      left++
+    }
+    while (right < rightArr.length) {
+      result.push(rightArr[right])
+      right++
+    }
+    return result
+  }
+  console.log(mergeSort([3,2,4,5,1,6,9,8]))
+</script>

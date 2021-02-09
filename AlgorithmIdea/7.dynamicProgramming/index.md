@@ -64,6 +64,8 @@
 - [最长上升子序列-力扣](https://leetcode-cn.com/problems/longest-increasing-subsequence/description/)
 - [解题方法](./14.300.longest-increasing-subsequence/index.md)
 
+### 0-1背包🎒
+
 ## 题目列表
 
 ### 1、最大子序和
@@ -126,3 +128,8 @@
 
 - [最长上升子序列-力扣](https://leetcode-cn.com/problems/longest-increasing-subsequence/description/)
 - [解题方法](./14.300.longest-increasing-subsequence/index.md)
+
+### 15、划分数组为和相等的两部分
+
+- [力扣](https://leetcode-cn.com/problems/partition-equal-subset-sum/description/)
+- [解题方法](./15.416.划分数组成相等的两部分/index.md)

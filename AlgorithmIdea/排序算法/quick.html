@@ -1,0 +1,36 @@
+<script>
+  // 排序算法的基本思想就是选择一个数作为pivot，将大于pivot的放在右边，小于的放在左边
+  const quickSort = (arr, left, right) => {
+    const list = [...arr]
+    if (arr.length > 1) {
+      let index = partition(arr, left, right)
+      if (left < index - 1) {
+        quickSort(arr, left, index - 1)
+      }
+      if (right > index) {
+        quickSort(arr, index, right)
+      }
+    }
+    return arr
+  }
+
+  const partition = (arr, left, right) => {
+    const pivot = arr[Math.floor((left + right) / 2)]
+    while (left <= right) {
+      while (arr[left] < pivot) {
+        left++
+      }
+      while (arr[right] > pivot) {
+        right--
+      }
+      if (left <= right) {
+        [arr[left], arr[right]] = [arr[right], arr[left]]
+        left++
+        right--
+      }
+    }
+    return left
+  }
+
+  console.log(quickSort([1,3,2,4,2,5], 0, 5))
+</script>
