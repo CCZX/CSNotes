@@ -18,18 +18,23 @@
     }
     .rect {
       width: 0;
-height: 0;
-border-top: 40px solid transparent;
-border-left: 40px solid transparent;
-border-right: 40px solid transparent;
-border-bottom: 40px solid #ff0000;
-
+      height: 0;
+      border-top: 40px solid transparent;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      border-bottom: 40px solid #ff0000;
     }
   </style>
 </head>
 <body>
   <!-- 
     具有BFC特性的元素可以看做是隔离独立的容器，容器里面的元素布局不会影响到外面的元素
+    触发BFC：
+    1. body
+    2. float不为none的元素
+    3. position不为static、relative
+    4. overflow不为visible
+    5. display的值为inline-block、flex等
    -->
   <!-- <div class="container">
     <p></p>
