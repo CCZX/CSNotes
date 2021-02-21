@@ -14,3 +14,12 @@
 - 执行UI渲染线程的工作，requestAnimationFrame在此执行
 - 执行web work任务
 - 执行完成本轮宏任务，重复第二步，直到情况宏任务队列和微任务队列
+
+## node事件循环
+
+timer -> setTimeout...
+pending callback -> 执行延迟到下一个循环执行IO操作
+idle，prepare -> 仅系统内部使用
+poll -> 检索新的IO操作
+check -> setImmediate
+close callback
