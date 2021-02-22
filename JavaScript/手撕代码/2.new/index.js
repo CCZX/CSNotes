@@ -6,10 +6,8 @@
 function myNew(constructor, ...args) {
 
   // 1. 新建对象
-  const instance = Object.create(null)
-
   // 2. 原型链指向 instance.__proto__ = constructor.prototype
-  instance = Object.create(constructor.prototype)
+  const instance = Object.create(constructor.prototype)
 
   // 3. 改变this
   const constructorRet = constructor.apply(instance, args)
@@ -21,6 +19,19 @@ function myNew(constructor, ...args) {
 
   // 4. 返回实例化对象
   return instance
+}
+
+function myObjectCreate(prototype) {
+  function F() {}
+  F.prototype = prototype
+  return new F()
+}
+
+function extend(sub, parent) {
+  function F() {}
+  F.prototype = parent.prototype
+  sub.prototype = new F()
+  sub.prototype.constructor = sub
 }
 
 function Person(name, age) {

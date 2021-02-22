@@ -1,0 +1,20 @@
+<script>
+  const data = {a : 1}
+
+  Object.defineProperty(data, 'a', {
+    get(a) {
+      console.log(a)
+      return 'ok'
+    }
+  })
+  console.log(data.a)
+
+  const options = {
+    value: '值',
+    writable: '是否可以被重写',
+    enumerable: '是否可枚举',
+    configurable: '是否可删除，是否可重新defineproperty配置',
+    get: '取值触发的回调函数',
+    set: '存值触发的回调函数',
+  }
+</script>

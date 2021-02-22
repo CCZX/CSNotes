@@ -4,10 +4,10 @@ Promise.myAll = (arr) => {
     arr.forEach((item, index) => {
       item.then(res => {
         list[index] = res
+        if (index === arr.length) {
+          resolve(list)
+        }
       })
-      if (index === arr.length) {
-        resolve(list)
-      }
     })
   }).catch(err => {
     throw new Error(err)

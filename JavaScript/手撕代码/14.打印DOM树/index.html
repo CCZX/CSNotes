@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <p></p>
+    <p></p>
+    <p></p>
+  </div>
+</body>
+<script>
+  const container = document.querySelector('.container')
+  function print1(root) {
+    const queue = [root]
+    let level = 0
+    const map = {}
+    while (queue.length) {
+      // debugger
+      // level += 1
+      const _node = queue.shift()
+      // // console.log(_node)
+      // console.log(`第${level}层`, _node.tagName)
+      const children = _node.children
+      if (children) {
+        level += 1
+        for (const child of children) {
+          console.log(`第${level}层`, child.tagName)
+          queue.push(child)
+        }
+      } else {
+        map[level] = _node
+      }
+    }
+    console.log(map)
+  }
+
+  // print1(container)
+
+  const BFS = (root) => {
+    if (!root) { return }
+    let queue = [{
+      item: root,
+      depth: 1
+    }]
+    while (queue.length) {
+      let node = queue.shift()
+      console.log(`第${node.depth}层：${node.item.nodeName}`)
+      Array.from(node.item.children).forEach((item, index, arr) => {
+        queue.push({
+          item: item,
+          depth: node.depth + 1
+        })
+      })
+    }
+  }
+
+  BFS(container)
+</script>
+
+</html>

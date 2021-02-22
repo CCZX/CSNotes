@@ -29,7 +29,7 @@ Object.prototype.__proto__ === null // true
 
 // 将对象的__proto__挂载到构造函数的prototype就实现了继承
 
-const f = Object.create(F.prototype)
+const f = Object.create(F.prototype) // f.__proto__ === F.prototype
 
 // class也只是prototype的语法糖
 

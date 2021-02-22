@@ -23,6 +23,31 @@ var oldElement = {
   ]
 }
 
+var newElement = {
+  type: 'ul',
+  props: {
+    id: 'list',
+    onClick: (e) => {
+      console.log('list click', e)
+    }
+  },
+  children: [
+    {
+      type: 'li', props: {
+        style: "color: red",
+        onClick: (e) => {
+          console.log('li click', e)
+        },
+        onMousemove: () => {
+          console.log('onmousemove')
+        }
+      }, children: ["Item 1"]
+    },
+    { type: 'li', children: ["Item 2"] },
+    { type: 'li', children: ["Item 3"] },
+  ]
+}
+
 // var newElement = {
 //   type: 'ul',
 //   props: {
