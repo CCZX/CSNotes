@@ -10,7 +10,9 @@
 
 <body>
   <div class="container">
-    <p></p>
+    <p>
+      <a href=""></a>
+    </p>
     <p></p>
     <p></p>
   </div>
@@ -51,13 +53,14 @@
     }]
     while (queue.length) {
       let node = queue.shift()
-      console.log(`第${node.depth}层：${node.item.nodeName}`)
       Array.from(node.item.children).forEach((item, index, arr) => {
         queue.push({
           item: item,
           depth: node.depth + 1
         })
       })
+      console.log(`第${node.depth}层：${node.item.nodeName}`)
+
     }
   }
 
