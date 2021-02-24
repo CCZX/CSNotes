@@ -44,3 +44,18 @@ const maxSubArray = function(nums) {
 
 - 执行用时：`84 ms`，在所有`JavaScript`提交中击败了`61.84%`的用户
 - 内存消耗：`38.2 MB`，在所有`JavaScript`提交中击败了`77.74%`的用户
+
+sum[i] = Max(sum[i - 1], sum[i - 1] + nums[i])
+max = Max(sum[0], sum[1], ..., sum[i])
+
+```js
+const maxSub = (nums) => {
+  let sum = nums[0]
+  let max = nums[0]
+  nums.forEach(n => {
+    sum = Math.max(sum, sum + n)
+    max = Math.max(max, sum)
+  })
+  return max
+}
+```

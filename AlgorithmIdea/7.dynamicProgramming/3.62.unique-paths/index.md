@@ -63,3 +63,14 @@ var uniquePaths = function(m, n) {
 
 - 执行用时：`76 ms`，在所有`JavaScript`提交中击败了`62.69 %`的用户
 - 内存消耗：`37.8 MB`，在所有`JavaScript`提交中击败了`34.93 %`的用户
+
+```js
+const uniquePath = (m, n) => {
+  const dp = Array(m).fill(0).map(() => Array(n).fill(1))
+  for(let i = 1; i < m; i++) {
+    for(let j = 1; j < n; j++) {
+      dp[i][j] = dp[i - 1][j] + dp[i][j - 1]
+    }
+  }
+}
+```

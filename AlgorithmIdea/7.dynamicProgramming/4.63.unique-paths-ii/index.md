@@ -112,3 +112,30 @@ const uniquePathsWithObstacles = function(obstacleGrid) {
 > 时间复杂度空间复杂度：
 - 时间复杂度：O(n^2)
 - 空间复杂度：O(n)
+
+```js
+const uniquePath = (grids) => {
+  const row = grids.length
+  const col = grids[0].length
+  const dp = Array(row).fill(0).map(() => Array(col).fill(0))
+  for(let i = 0; i < row; i++) {
+    if(grids[i][0] === 1) {
+      break
+    }
+    dp[i][0] = 1
+  }
+  for(let i = 0; i < col; i++) {
+    if(grids[0][i] === 1) {
+      break
+    }
+    dp[0][i] = 1
+  }
+  for(let i = 1; i < row; i++) {
+    for(let j = 1; j < col; j++) {
+      if(grids[i][j] !== 1) {
+        dp[i][j] = dp[i - 1][j] + dp[i][j - 1]
+      }
+    }
+  }
+}
+```
