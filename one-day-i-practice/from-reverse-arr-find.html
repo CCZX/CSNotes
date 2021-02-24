@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function find(arr, target) {
+      let r = arr.length - 1
+      let l = 0
+      while (l < r) {
+        const m = Math.floor((l + r) / 2)
+        const mValue = arr[m]
+        const rValue = arr[r]
+        const lValue = arr[l]
+
+        if (mValue === target) {
+          console.log(true)
+          return true
+        }
+
+        // if (rValue < lValue) {
+        //   if (mValue < target) {
+        //     r = m
+        //   }
+        // }
+
+        if (mValue < target) {
+          if (rValue < lValue) {
+            r = m
+          } else {
+            l = m
+          }
+        }
+
+        if (mValue > target) {
+          if (rValue < lValue) {
+            l = m
+          } else {
+            r = m
+          }
+        }
+
+      }
+      console.log(false)
+      return false
+    }
+    // find([5, 6, 7, 0, 1, 2, 3], 0)
+
+    function find1(arr, key) {
+      let left = 0;
+      let right = arr.length - 1;
+
+      while (left < right) {
+        let mid = Math.floor((right + left) / 2);
+        if (arr[mid] == key) {
+          console.log(true)
+          return mid;
+        }
+        if (arr[right] == key) {
+          console.log(true)
+          return mid;
+        }
+        if (arr[left] == key) {
+          console.log(true)
+          return mid;
+        }
+        
+        //如果前半段有序
+        if (arr[mid] > arr[left]) {
+          //判断Key是否在前半段，如果在，则继续遍历前半段；如果不在，则遍历后半段
+          // [1, 2, 3, 6, 0]
+          // if (arr[mid] > key) {
+          if (arr[left] < key && key < arr[mid]) {
+            right = mid - 1;
+          } else {
+            left = mid + 1;
+          }
+        }
+        //如果后半段有序
+        if (arr[mid] < arr[right]) {
+          //判断Key是否在后半段，如果在，则继续遍历后半段；如果不在，则遍历前半段
+          // if (arr[mid] < key) {
+          if (arr[mid] < key && key < arr[right]) {
+            left = mid + 1;
+          } else {
+            right = mid - 1;
+          }
+        }
+      }
+      console.log(false)
+      return -1;
+
+    }
+    find1([5, 6, 7, 0, 1, 2, 3], 7)
+  </script>
+</body>
+
+</html>
