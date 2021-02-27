@@ -7,7 +7,25 @@ const graph = {
   "F": ["D"],
 }
 
-// 使用队列实现BFS
+// 使用队列实现BFS  Breadth First Search
+
+const BFS = (graph, s) => {
+  const queue = []
+  const visited = []
+  queue.push(s)
+  visited.push(s)
+  while (queue.length) {
+    const t = queue.shift()
+    const neighbor = graph[t]
+    for (const node of neighbor) {
+      if (!visited.includes(node)) {
+        queue.push(node)
+        visited.push(node)
+      }
+    }
+    console.log(t)
+  }
+}
 
 const BFS = (graph, s) => {
   const queue = []
