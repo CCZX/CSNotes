@@ -74,6 +74,10 @@ dp(i) = dp(i - 1) + dp(i - 2)
   - `if`: `(s[i - 1] = 1)`，那么不管`s[i]`是`1-9`任意一个数，`s[i - 1]s[i]`都可以看做整体，则`dp[i] = dp[i - 1] + dp[i - 2]`
   - `else if`: `s[i - 1] = 2`，当`0< s[i] < 7`时`dp[i] = dp[i - 1] + dp[i - 2]`，否则`dp[i] = dp[i - 2]`
 
+```js
+
+```
+
 > 代码实现：
 
 ```ts
@@ -86,6 +90,7 @@ function numDecodings(s) {
   const len = s.length
   const dp = Array(len + 1).fill(0)
   dp[0] = dp[1] = 1
+  // 101
   for(let i = 2; i <= len; i++) {
     if(s[i - 1] === '0') {
       if(s[i - 2] === '1' || s[i - 2] === '2') {

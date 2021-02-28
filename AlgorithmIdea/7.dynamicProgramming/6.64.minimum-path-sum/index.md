@@ -66,3 +66,10 @@ dp[m, n] = min(dp[m - 1, n], dp[m, n - 1]) + nums[m, n]
 
 - 执行用时：`84 ms`，在所有`JavaScript`提交中击败了`76.7 %`的用户
 - 内存消耗：`38.4 MB`，在所有`JavaScript`提交中击败了`73.32 %`的用户
+
+####
+
+`dp[i][j] = Min(dp[i - 1][j], dp[i][j - 1]) + nums[i][j]`
+```js
+
+```

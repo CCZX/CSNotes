@@ -72,3 +72,7 @@ const rob = function(nums) {
 
 - 执行用时：`80 ms`，在所有`JavaScript`提交中击败了`41.18 %`的用户
 - 内存消耗：`37.6 MB`，在所有`JavaScript`提交中击败了`40.66 %`的用户
+
+####
+
+dp[i] = Max(dp[i - 2] + nums[i], dp[i - 1])

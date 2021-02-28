@@ -32,7 +32,7 @@
 if (nums[i] > nums[i - 1]) {
   dp[i] = dp[i - 1] + 1
 } else {
-  dp[i] = dp[i - 1]
+  dp[i] = 1
 }
 ```
 

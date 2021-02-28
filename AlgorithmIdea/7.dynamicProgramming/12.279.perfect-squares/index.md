@@ -61,3 +61,7 @@ var numSquares = function(n) {
 
 - 执行用时：`268 ms`，在所有`JavaScript`提交中击败了`25.27 %`的用户
 - 内存消耗：`40.8 MB`，在所有`JavaScript`提交中击败了`60.61 %`的用户
+
+####
+
+dp[i] = Min(dp[0], ..., dp[i - 1]) + 1

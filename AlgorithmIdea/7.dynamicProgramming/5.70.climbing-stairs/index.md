@@ -114,3 +114,21 @@ const climbStairs = function (n) {
 > 时间复杂度空间复杂度：
 - 时间复杂度：O(2^n)
 - 空间复杂度：O(1)
+
+```js
+const climbing = (n) => {
+  // const dp = [1, 2]
+  // for(let i = 2; i < n; i++) {
+  //   dp[i] = dp[i - 1] + dp[i - 2]
+  // }
+  // return dp[n - 1]
+  let prev1 = 1
+  let prev2 = 1
+  for(let i = 1; i < n; i++) {
+    const temp = prev1 + prev2
+    prev1 = prev2
+    prev2 = temp
+  }
+  return prev2
+}
+```

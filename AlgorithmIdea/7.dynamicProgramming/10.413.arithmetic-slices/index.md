@@ -64,3 +64,15 @@ var numberOfArithmeticSlices = function(A) {
 
 - 执行用时：`88 ms`，在所有`JavaScript`提交中击败了`18.09%`的用户
 - 内存消耗：`37.6 MB`，在所有`JavaScript`提交中击败了`57.33%`的用户
+
+####
+
+A[i] - A[i - 1] = A[i - 1] - A[i - 2]，则A[i - 2]到A[i]构成了等差数列。
+
+假设dp[i]表示前 i 项构成的等差数列的个数，则
+if A[i] - A[i - 1] = A[i - 1] - A[i - 2]
+ dp[i] = dp[i - 1] + 1
+else 
+  dp[i] = 0
+
+如果A[i - 1]到A[i + 1]也构成了等差数列

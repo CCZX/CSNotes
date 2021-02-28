@@ -43,3 +43,9 @@ var rob = function(nums) {
 
 - 执行用时：`84 ms`，在所有`JavaScript`提交中击败了`20.39%`的用户
 - 内存消耗：`37.6 MB`，在所有`JavaScript`提交中击败了`44.00%`的用户
+
+#### 
+
+dp[i]
+
+Max()
