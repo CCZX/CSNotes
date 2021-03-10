@@ -64,6 +64,11 @@
 - [最长上升子序列-力扣](https://leetcode-cn.com/problems/longest-increasing-subsequence/description/)
 - [解题方法](./14.300.longest-increasing-subsequence/index.md)
 
+#### 2、最长数对链
+
+- [最长数对链-力扣](https://leetcode-cn.com/problems/maximum-length-of-pair-chain/)
+- [解题方法](./17.646.最长数对链/index.md)
+
 ### 0-1背包🎒
 
 ## 题目列表
@@ -133,3 +138,13 @@
 
 - [力扣](https://leetcode-cn.com/problems/partition-equal-subset-sum/description/)
 - [解题方法](./15.416.划分数组成相等的两部分/index.md)
+
+### 16、判断子序列
+
+- [力扣](https://leetcode-cn.com/problems/is-subsequence/)
+- [解题方法](./16.392.判断子序列/index.md)
+
+### 17、最长数对链
+
+- [最长数对链-力扣](https://leetcode-cn.com/problems/maximum-length-of-pair-chain/)
+- [解题方法](./17.646.最长数对链/index.md)
