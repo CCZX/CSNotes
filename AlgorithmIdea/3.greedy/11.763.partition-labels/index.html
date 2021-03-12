@@ -1,0 +1,40 @@
+<script>
+  var partitionLabels = function(S) {
+    const rangeMap = {}
+    for(let i = 0; i < S.length; i++) {
+      console.log(S[i])
+      let lastIndex = S.lastIndexOf(S[i])
+      if (lastIndex < 0) {
+        lastIndex = i
+      }
+      console.log(lastIndex)
+      let range = S.slice(i, lastIndex + 1)
+      while (lastIndex < S.length) {
+        lastIndex++
+        const next = S[lastIndex]
+        console.log(lastIndex, next)
+        if (range.includes(next)) {
+          range += next
+        } else {
+          lastIndex--
+          break
+        }
+      }
+      rangeMap[S[i]] = range
+      i = lastIndex
+    }
+    console.log(rangeMap)
+    console.log(Object.values(rangeMap).map(item => item.length))
+    return Object.values(rangeMap).map(item => item.length)
+  };
+  partitionLabels("ababcbacadefegdehijhklij")
+  // "ababcbacadefegdehijhklij"
+// 划分结果为 "ababcbaca", "defegde", "hijhklij"。
+// a: "ababcbaca"
+// d: "defegde"
+// h: "hijh"
+// i: "i"
+// j: "j"
+// k: "k"
+// l: "l"
+</script>
