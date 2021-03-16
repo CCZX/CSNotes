@@ -15,6 +15,10 @@
 - 执行web work任务
 - 执行完成本轮宏任务，重复第二步，直到情况宏任务队列和微任务队列
 
+## 宏任务微任务
+
+ES6 规范中，microtask 称为 jobs，macrotask 称为 task。宏任务是由宿主发起的，而微任务由JavaScript自身发起。
+
 ## node事件循环
 
 timer -> setTimeout...
