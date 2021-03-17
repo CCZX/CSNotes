@@ -3,7 +3,7 @@
  * const g = x => x * 2
  * const t = (x, y) => x + y
  * const c = compress(f, g, t)
- * f(g(f(1, 2)))
+ * f(g(t(1, 2)))
  * c(1, 2) // 3 => 6 => 7
  */
 
