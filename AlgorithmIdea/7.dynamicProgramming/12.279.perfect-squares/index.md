@@ -34,6 +34,10 @@ minNumSquares(n)=min(minNumSquares(n - k) + 1) ∀k ∈ square numbers & k <= n
 ```
 比如`minNumSquares(12) = min(minNumSquares(11) + 1, minNumSquares(8) + 1, minNumSquares(3) + 1)`，而其中`minNumSquares(11)、minNumSquares(8)minNumSquares(3)`都可以通过相同方法计算。所以对于一个数`n`，我们先找到小于它的所有完全平方数：`squaresArr`。
 
+```js
+dp[i] = min(dp[i - k]) + dp[k] = min(dp[i - k]) + 1
+```
+
 > 代码实现：
 
 ```js

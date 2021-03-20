@@ -27,6 +27,10 @@ sumRange(0, 5) -> -3
 
 对于一个数组求其`i`项到`j`项之和，可以理解为`sum[j + 1] - sum[i]`，所以`sum[j + 1] - sum[i]`为状态转移方程。所以我们可以遍历数组求得每一个`sum[n]`的和。
 
+sum[j - i] = sum[j] - sum[i]
+
+1,2,3,4,5
+
 ```js
 /**
  * @param {number[]} nums

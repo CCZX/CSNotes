@@ -39,6 +39,10 @@
 dp[i] = dp[i - 1] + dp[i - 2], i > 2
 ```
 
+```js
+dp[i] = dp[i - 1] + dp[i - 2]
+```
+
 > 代码实现：
 
 ```js
@@ -69,6 +73,19 @@ const climbStairs = function(n) {
 通过观察我们可以发现当前步数，只和前面两步有关，所以我们可以用两个数来存储前面两步的步数，类似与滚动数组的方法。
 
 > 代码实现：
+
+```js
+const climbing = (n) => {
+  const prev1 = 1
+  const prev2 = 1
+  for(let i = 1; i < n; i++) {
+    const curr = prev1 + prev2
+    prev1 = prev2
+    prev2 = curr
+  }
+  return prev2
+}
+```
 
 ```js
 /**

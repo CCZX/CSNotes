@@ -27,6 +27,10 @@ max{f(0), f(1), ..., f(n - 1)}
 f(i) = max{nums[i], nums[i] + f(i - 1)}
 ```
 
+```js
+dp[i] = max(dp[i - 1] + nums[i], nums[i])
+```
+
 > 代码实现：
 
 ```js

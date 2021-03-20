@@ -49,3 +49,5 @@ var rob = function(nums) {
 dp[i]
 
 Max()
+
+去头去尾
