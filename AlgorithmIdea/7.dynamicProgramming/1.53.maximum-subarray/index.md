@@ -63,3 +63,21 @@ const maxSub = (nums) => {
   return max
 }
 ```
+
+#### 2、滑动窗口
+
+```js
+const maxSub = (nums) => {
+  let sum = 0
+  let max = nums[0]
+  for(let num of nums) {
+    if(sum > 0) {
+      sum += num
+    } else {
+      sum = num
+    }
+    max = Math.max(max, sum)
+  }
+  return max
+}
+```
