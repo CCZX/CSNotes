@@ -115,3 +115,12 @@ var getIntersectionNode = function(headA, headB) {
   return pA;
 };
 ```
+
+> 时间复杂度&空间复杂度：
+- 时间复杂度：`O(m + n)`
+- 空间复杂度：`O(1)`
+
+> 执行结果：
+
+- 执行用时：`104 ms`，在所有`JavaScript`提交中击败了`92.05 %`的用户
+- 内存消耗：`44.2 MB`，在所有`JavaScript`提交中击败了`96.31 %`的用户
