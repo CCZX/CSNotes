@@ -86,3 +86,32 @@ var getIntersectionNode = function(headA, headB) {
 
 - 执行用时：` ms`，在所有`JavaScript`提交中击败了` %`的用户
 - 内存消耗：` MB`，在所有`JavaScript`提交中击败了` %`的用户
+
+#### 2、双指针
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} headA
+ * @param {ListNode} headB
+ * @return {ListNode}
+ */
+var getIntersectionNode = function(headA, headB) {
+  if(!headA || !headB) return null
+
+  let pA = headA,
+      pB = headB;
+  while (pA !== pB) {
+    pA = pA === null ? headB : pA.next;
+    pB = pB === null ? headA : pB.next;
+  }
+  return pA;
+};
+```
