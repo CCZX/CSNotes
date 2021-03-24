@@ -1,0 +1,75 @@
+<script>
+const ROOT_P_ID = 0
+
+const list = [
+  {id:1,name:'boss',parentId:0},
+  {id:2,name:'lily',parentId:1},
+  {id:3,name:'jack',parentId:1},
+  {id:4,name:'john',parentId:2},
+  {id:5,name:'boss2',parentId:0},
+]
+
+/**
+ * 
+ * @param {any[]} list 
+ */
+function listToTree1(list) {
+  list.forEach(c_node => {
+    const parentId = c_node.parentId
+    if (parentId !== ROOT_P_ID) {
+      list.forEach(p_node => {
+        if (p_node.id === parentId) {
+          if (!p_node.children) {
+            p_node.children = []
+          }
+          p_node.children.push(c_node)
+        }
+      })
+    }
+  })
+  return list.filter(i => i.parentId === ROOT_P_ID)
+}
+
+function listToTree2(list) {
+  const res = []
+
+  for (const node of list) {
+    if (node.parentId === ROOT_P_ID) {
+      let p = { ...node }
+      p.children = toTree(p.id, list)
+      res.push(p)
+    }
+  }
+
+  return res
+}
+
+function toTree(pid, list) {
+  const children = []
+  for (const node of list) {
+    if (node.parentId === pid) {
+      children.push(node)
+    }
+  }
+
+  for (const node of children) {
+    node.children = toTree(node.id, list)
+  }
+
+  return children
+}
+
+function listToTree3(list) {
+  const cloneList = JSON.parse(JSON.stringify(list))
+  return cloneList.filter(parent => {
+    const children = cloneList.filter(child => parent.id === child.parentId)
+    parent.children = children
+    return parent.parentId === ROOT_P_ID
+  })
+}
+
+console.log(listToTree1(list))
+console.log(listToTree2(list))
+console.log(listToTree3(list))
+
+</script>
