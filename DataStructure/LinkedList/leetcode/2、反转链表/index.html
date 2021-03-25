@@ -1,0 +1,63 @@
+<script>
+function ListNode(value) {
+  this.value = value
+  this.next = null
+}
+
+const nA = new ListNode('a')
+const nB = new ListNode('b')
+const nC = new ListNode('c')
+const nD = new ListNode('d')
+const nE = new ListNode('e')
+
+nA.next = nB
+nB.next = nC
+nC.next = nD
+nD.next = nE
+
+console.log(nA);
+
+var reverseList = function(head) {
+  if(!head || !head.next) return head
+  let curr_node = head
+  let prev_node = null
+  while(curr_node) {
+    const next_node = curr_node.next
+    curr_node.next = prev_node
+    prev_node = curr_node
+    curr_node = next_node
+  }
+  return prev_node
+};
+
+const p = reverseList(nA)
+console.log(p);
+
+var reverseList2 = function(head) {
+  if (!head || !head.next) return head
+  const arr = []
+  while (head) {
+    arr.push(head.value)
+    head = head.next
+  }
+  return arr.reduce((acc, v) => { return { value: v, next: acc } }, null)
+};
+
+const p2 = reverseList2(nA)
+console.log(p2);
+
+var reverseList3 = function(head) {
+  if(!head || !head.next) return head
+  let p = head
+  let isFirst = true
+  while(p.next) {
+    p.next.next = p
+    const next = p.next
+    p.next = null
+    p = next
+  }
+  return p
+};
+const p3 = reverseList3(nA)
+console.log(p3);
+</script>
