@@ -1,5 +1,5 @@
 /**
- * 左 右 根
+ * 后序遍历左 右 根
  * @param {TreeNode} root
  * @return {number[]}
  */

@@ -1,9 +1,9 @@
 /**
- * 左 根 右
+ * 中序遍历：左 根 右
  * @param {TreeNode} root
  * @return {number[]}
  */
-var inorderTraversal = function(root) {
+ var inorderTraversal = function(root) {
   const res = []
   const stack = []
   let p = root
