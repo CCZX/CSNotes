@@ -36,9 +36,8 @@
 
 ### 解题方法
 
-#### 1、暴力破解
-一个长度为n的数组分隔成两部分一共有`Math.floor(n/2)`种方法（注意：这是类似直接把绳子分为两节的做法，没有考虑数组内不同项的组合情况）
-无脑循环
+#### 1、递归
+
 
 > 代码实现：
 
@@ -48,13 +47,70 @@
  * @return {boolean}
  */
 var canPartition = function(nums) {
-  const splitCount = Math.floor(nums.length/2)
-  let index = 1
-  while(index <= splitCount) {
-    for(let i = 0; i < nums.length; i++) {
+  let sum = 0
+  for(const num of nums) {
+    sum += num
+  }
+  if(sum % 2 !== 0) return false // 奇数
 
+  const target = sum / 2
+
+  const dfs = (currSum, i) => {
+    if(i === nums.length || currSum > target) return false
+    if(currSum === target) return true
+
+    return dfs(currSum + nums[i], i + 1) || dfs(currSum, i + 1)
+  }
+
+  return dfs(0, 0)
+};
+```
+
+> 时间复杂度&空间复杂度：
+- 时间复杂度：`O()`
+- 空间复杂度：`O()`
+
+> 执行结果：
+
+- 执行用时：` ms`，在所有`JavaScript`提交中击败了` %`的用户
+- 内存消耗：` MB`，在所有`JavaScript`提交中击败了` %`的用户
+
+#### 2、动态规划
+
+> 代码实现：
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var canPartition = function(nums) {
+  const len = nusm.length
+  let sum = 0
+  for(const num of nums) {
+    sum += num
+  }
+  if(sum % 2 !== 0) return false // 奇数
+
+  const target = sum / 2
+
+  const dp = Array(len).fill(0).map(() => Array(target + 1).fill(false))
+  for(let i = 0; i < len; i++) {
+    dp[i][0] = true
+  }
+
+  for(let i = 1; i < len; i++) {
+    for(let j = 1; j <= target; j++) {
+      const num = nums[i]
+      if (j >= num) {
+        dp[i][j] = dp[i - 1][j] | dp[i - 1][j - num];
+      } else {
+        dp[i][j] = dp[i - 1][j];
+      }
     }
   }
+
+  return dp[n - 1][target]
 };
 ```
 
