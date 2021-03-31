@@ -1,0 +1,32 @@
+<script>
+/**
+ * 判断是否是质数
+ * 只能被1和自身整除的数才是素数
+ * 素数也叫质数
+ * */
+function isPrime(num) {
+  if (num === 1 || num === 2) {
+    return true
+  }
+  for (let i = 2; i < num - 1; i++) {
+    if (num % i === 0) {
+      return false
+    }
+  }
+
+  return true
+}
+
+/**
+ * 计算n以内的所有质数
+ * */
+function getPrime(n) {
+  const primeArr = []
+  for (let i = 1; i < n; i++) {
+    if(isPrime(i)) {
+      primeArr.push(i)
+    }
+  }
+  return primeArr
+}
+</script>
