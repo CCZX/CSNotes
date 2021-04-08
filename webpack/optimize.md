@@ -7,9 +7,10 @@
 
 ## 生产
 
-- 按需加载
-- 公共代码提取
-- 静态资源分离
-- tree shaking
-- scope hoisting
-- gzip
+- 按需加载：import
+- 公共代码提取：optimization.splitChunks
+- 静态资源分离：external
+- tree shaking：package设置sideEffect
+- scope hoisting：production自动开启、webpack.optimize.ModuleConcatenationPlugin()收到开启
+- gzip：webpack-parallel-uglify-plugin压缩JS，miniCssExtractPlugin压缩CSS
+- 提取css：miniCssExtractPlugin，作为单独link引入

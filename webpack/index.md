@@ -25,7 +25,31 @@ output: {
 import(/** chunkName: xxx*/ './index.jsx').then(data => {
   // ...
 })
+
+const Component = React.lazy(() => import( /** chunkName: componeneName */ 'component'))
 ```
 在webpack配置文件的output需要指定chunkFilename
 
 ## 公共代码提取
+
+`webpack`配置文件：
+
+```js
+...
+optimization: {
+  splitchunks: {
+    chunks: 'all', // 提取的范围，默认是src目录下
+    cacheGroups: {
+      common: {
+        name: 'common', // 公共资源的名称
+        minSize: '', // 公共资源的最小大小
+        minChunks: '', // 最小引用次数
+      },
+      vendors: {
+        //...
+      }
+    }
+  }
+}
+...
+```
