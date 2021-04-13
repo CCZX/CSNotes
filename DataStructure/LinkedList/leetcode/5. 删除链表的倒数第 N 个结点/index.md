@@ -34,7 +34,7 @@
 
 ### 解题方法
 
-#### 1、
+#### 1、两次遍历
 
 > 代码实现：
 
@@ -71,6 +71,52 @@ var removeNthFromEnd = function(head, n) {
   }
   p2.next = p2.next.next
   return tempNode.next
+};
+```
+
+> 时间复杂度&空间复杂度：
+- 时间复杂度：`O(n)`
+- 空间复杂度：`O(1)`
+
+> 执行结果：
+
+- 执行用时：`84 ms`，在所有`JavaScript`提交中击败了`83.02 %`的用户
+- 内存消耗：`38.8 MB`，在所有`JavaScript`提交中击败了`96.74 %`的用户
+
+#### 2、快慢指针
+
+定义两个指针 p, q 让 p 先走 n 步，然后让 p 和 q 同时走，当快指针遍历到最后一个节点时慢指针刚好走到需要删除的位置。
+
+> 代码实现：
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} n
+ * @return {ListNode}
+ */
+var removeNthFromEnd = function(head, n) {
+  let preHead = new ListNode(-1);
+  preHead.next = head;
+  let fast = preHead;
+  let slow = preHead;
+  while(n != 0){
+    fast = fast.next;
+    n--;
+  }
+  while(fast.next != null){
+    fast = fast.next;
+    slow = slow.next;
+  }
+  slow.next = slow.next.next;
+  return preHead.next;
 };
 ```
 
