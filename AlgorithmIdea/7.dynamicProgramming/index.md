@@ -159,12 +159,12 @@
 - [最长数对链-力扣](https://leetcode-cn.com/problems/maximum-length-of-pair-chain/)
 - [解题方法](./17.646.最长数对链/index.md)
 
-### 17、摆动序列
+### 18、摆动序列
 
 - [摆动序列-力扣](https://leetcode-cn.com/problems/wiggle-subsequence/description/)
 - [解题方法](./18.376.摆动序列/index.md)
 
-### 17、删除字符串
+### 19、删除字符串
 
 - [删除字符串-力扣](https://leetcode-cn.com/problems/delete-operation-for-two-strings)
 - [解题方法](./19.583.删除字符串/index.md)
