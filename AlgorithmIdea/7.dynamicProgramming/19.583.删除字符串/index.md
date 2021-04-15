@@ -38,7 +38,22 @@ function maxSub(s1, s2, i, j) {
 > 代码实现：
 
 ```js
-
+/**
+ * @param {string} word1
+ * @param {string} word2
+ * @return {number}
+ */
+var minDistance = function(word1, word2) {
+  function maxSub(s1, s2, i, j) {
+    if(i === 0 || j === 0) return 0
+    if(s1[i - 1] === s2[j - 1]) {
+      return 1 + maxSub(s1, s2, i - 1, j - 1)
+    } else {
+      return Math.max(maxSub(s1, s2, i - 1, j), maxSub(s1, s2, i, j - 1))
+    }
+  }
+  return word1.length + word2.length - 2 * maxSub(word1, word2, word1.length, word2.length)
+};
 ```
 
 > 时间复杂度&空间复杂度：
