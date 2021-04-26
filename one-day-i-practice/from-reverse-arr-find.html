@@ -70,7 +70,9 @@
           console.log(true)
           return mid;
         }
-        
+        // 0 1 2 3 4 5 6 7 8 9
+        // mid > left，前半段有序： 3 4 5 6 7 8 9 0 1 2
+        // mid < right，后半段有序：8 9 0 1 2 3 4 5 6 7
         //如果前半段有序
         if (arr[mid] > arr[left]) {
           //判断Key是否在前半段，如果在，则继续遍历前半段；如果不在，则遍历后半段

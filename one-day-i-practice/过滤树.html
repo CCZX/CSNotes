@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const mockTreeData = [
+      {
+        key: "p1",
+        title: '北森',
+      },
+
+      {
+        key: "p3",
+        title: '总裁p3',
+      },
+
+      {
+        key: "p2",
+        title: "总1裁s",
+        children: [{
+          key: "p2-1",
+          title: "总裁",
+          children: [{
+            key: "p2-1-1",
+            title: "总裁11",
+            children: [{
+              key: "p2-1-1-1",
+              title: "总裁1111",
+            }]
+          }]
+        },
+        {
+          key: "p2-2",
+          title: "董事长"
+        },
+        {
+          key: "p2-3",
+          title: "CEO"
+        }]
+      },
+    ]
+
+    function filterTree(array, text) {
+      const parentKeys = []
+      const getNodes = (result, object) => {
+        if (object.title.includes(text) && !object.children) {
+          result.push(object);
+          return result;
+        }
+        if (Array.isArray(object.children)) {
+          const nodes = object.children.reduce(getNodes, []);
+          // console.log(object)
+          const t = object.children.filter(item => (
+            nodes.map(n => n.key).includes(item.key)
+          ))
+          const s = { ...object, children: t }
+          if (nodes.length) {
+            parentKeys.push(object.key)
+            result.push({ ...s });
+          }
+        }
+        return result;
+      };
+      return array.reduce(getNodes, []);
+    }
+
+    console.log(filterTree(mockTreeData, '总裁'))
+
+    function filterTree1(array, text) {
+      const getNodes = (result, object) => {
+        if (object.title.includes(text) && !object.children) {
+          result.push(object);
+          return result;
+        }
+        if (Array.isArray(object.children)) {
+          const nodes = object.children.reduce(getNodes, []);
+          // console.log(object)
+          const t = object.children.filter(item => (
+            nodes.map(n => n.key).includes(item.key)
+          ))
+          const s = { ...object, children: t }
+          if (nodes.length) result.push({ ...object, nodes });
+        }
+        return result;
+      };
+
+      return array.reduce(getNodes, []);
+    }
+
+    // console.log(filterTree1(mockTreeData, '总裁'))
+
+    function filter(array, text) {
+      const getNodes = (result, object) => {
+        if (object.text === text) {
+          result.push(object);
+          return result;
+        }
+        if (Array.isArray(object.nodes)) {
+          const nodes = object.nodes.reduce(getNodes, []);
+          if (nodes.length) result.push({ ...object, nodes });
+        }
+        return result;
+      };
+
+      return array.reduce(getNodes, []);
+    }
+
+    var tree = [{ text: "Parent 1", nodes: [{ text: "Child 1", type: "Child", nodes: [{ text: "Grandchild 1", type: "Grandchild" }, { text: "Grandchild 2", type: "Grandchild" }] }, { text: "Child 2", type: "Child" }] }, { text: "Parent 2", type: "Parent" }, { text: "Parent 3", type: "Parent" }];
+
+    // console.log(filter(tree, 'Parent 1'));
+    // console.log(filter(tree, 'Child 1'));
+    // console.log(filter(tree, 'Grandchild 2'));
+
+
+    // function filterTree(treeData, key) {
+    //   const parentKeys = []
+    //   const getChildren = (resTreeData, treeItem) => {
+    //     if (treeItem.title.includes(key) && !treeItem.children) {
+    //       resTreeData.push(treeItem)
+    //       return resTreeData
+    //     }
+    //     if (Array.isArray(treeItem.children)) {
+    //       const nodes = treeItem.children.reduce(getChildren, [])
+    //       const parentNode = treeItem.children.filter(item => (
+    //         nodes.map(n => n.key).includes(item.key)
+    //       ))
+    //       const data = { ...treeItem, children: parentNode }
+    //       if (nodes.length) {
+    //         parentKeys.push(treeItem.key)
+    //         resTreeData.push({ ...data })
+    //       }
+    //     }
+    //     return resTreeData
+    //   };
+
+    //   return {
+    //     treeData: treeData.reduce(getChildren, []),
+    //     expandedKeys: parentKeys,
+    //   }
+    // }
+
+  </script>
+</body>
+
+</html>
