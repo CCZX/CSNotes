@@ -8,7 +8,7 @@ class QuadTree {
     this.maxLevel = maxLevel // 树的最大深度
 
     this.objects = [] // 区块的数据对象
-    this.nodes = [] // 四个子区块
+    this.objects = [] // 四个子区块
   }
 
   /**
