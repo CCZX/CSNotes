@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn1">add</button>
+  <button id="btn2">add 2</button>
+  <script>
+    var _____testArray_____ = [ {value: 'hello'} ];
+
+    function someTodo() {
+      _____testArray_____.push({
+        value: ':::::::::'
+      })
+    }
+
+    document.querySelector('#btn1').addEventListener('click', someTodo, false)
+    document.querySelector('#btn2').addEventListener('click', () => {
+      for (let i = 0; i < 1000; i++) {
+        _____testArray_____.push({
+          value: '========'
+        })
+      }
+    }, false)
+  </script>
+</body>
+</html>
